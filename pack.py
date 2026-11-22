@@ -6,7 +6,7 @@ import zipfile
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(os.path.dirname(ROOT), 'eclife-site.zip')
 
-EXCLUDE_DIRS = {'.git', 'data', 'templates', '__pycache__', '.wrangler'}
+EXCLUDE_DIRS = {'.git', '.github', 'data', 'templates', '__pycache__', '.wrangler'}
 EXCLUDE_FILES = {'build.py', 'pack.py', 'README.md', '.gitignore', '.gitattributes',
                  '_p.js', '_products_new.json'}
 
