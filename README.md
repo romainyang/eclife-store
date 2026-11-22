@@ -80,14 +80,76 @@ python build.py
 
 ---
 
-## 新增一款产品（4 步）
+## 新增一款产品
 
-1. **放图片**：把图片复制进 `images/details/`，命名成 `bv999-1.jpg`、`bv999-2.jpg` 这种有规律的英文名
-2. **加数据**：在 `data/products.json` 里复制一段现成的产品块，改字段（`key` / `id` 不能和已有的重复）
-3. **构建**：`python build.py`
-4. **提交**：`git add -A && git commit -m "add bv999" && git push`
+### 方式 A：全程在 GitHub 网页上做（不用命令行）
 
-构建会自动生成 `product/bv999/index.html`、把它加进首页列表和 sitemap。
+1. **上传图片**
+   打开 https://github.com/romainyang/eclife-store/tree/main/images/details → 右上 **Add file → Upload files** → 拖入图片 → **Commit changes**。
+   命名规则：`bv999-1.jpg`、`bv999-2.jpg`（英文小写、数字、连字符，别用空格和中文）。
+2. **改数据**
+   打开 https://github.com/romainyang/eclife-store/blob/main/data/products.json → 点右上铅笔图标进入编辑。
+   在数组最后一项后面补一个英文逗号 `,`，把下面的「产品块」粘进去改成你的内容 → **Commit changes**。
+3. **等 1 分钟**
+   打开 https://github.com/romainyang/eclife-store/actions ，会看到一次 `Build & deploy to GitHub Pages` 在跑，变绿勾即上线。
+4. **访问新网址** `https://yange.asia/product/bv999/`
+
+### 方式 B：本地改（发布前能预览）
+
+```bash
+cd C:/Users/romai/WorkBuddy/2026-11-17-19-59-27/eclife-store
+# 1. 图片放进 images/details/
+# 2. 编辑 data/products.json
+python build.py                # 生成产品页 + 同步首页 + 更新 sitemap
+python -m http.server 8080     # 浏览器打开 http://localhost:8080 预览
+git add -A && git commit -m "add bv999" && git push
+```
+
+### 可直接复制的产品块
+
+```json
+{
+  "id": "p13",
+  "key": "bv999",
+  "name": "Eclife 30\" Bathroom Vanity with Sink",
+  "sub": "Solid Wood · Soft-Close · Freestanding",
+  "size": "30",
+  "type": "single",
+  "price": 529.99,
+  "was": 649.99,
+  "badge": "New",
+  "stars": 4.6,
+  "sw": ["#f4f1ea"],
+  "gallery": ["bv999-1", "bv999-2", "bv999-3"],
+  "features": [
+    "Solid wood frame: kiln-dried hardwood resists warping in humid bathrooms.",
+    "Soft-close doors: adjustable hinges keep mornings quiet.",
+    "Pre-drilled top: faucet and drain ready, installs in under an hour."
+  ],
+  "desc": "One or two paragraphs describing the vanity, its materials and who it suits.",
+  "specs": [["Height", "33.5 in"], ["Width", "30 in"], ["Cabinet material", "Manufactured Wood"]],
+  "reviewCount": 0,
+  "ratingDist": [],
+  "reviews": []
+}
+```
+
+`was`（划线价）、`badge`（角标）、`specs`（规格表）、`reviews`（评价）都可以省略。没有评价时 `reviewCount` 写 `0`、`ratingDist` 和 `reviews` 留空数组，详情页会自动不渲染评价区。
+
+### 提交前自查 5 点
+
+- `key` 必须唯一，决定网址 `/product/<key>/`，只能英文小写、数字、连字符
+- `id` 必须唯一，购物车靠它区分产品，重复会导致加购串产品
+- `gallery` 只写文件名，不带 `images/details/` 前缀、不带 `.jpg` 后缀，第一张是主图
+- JSON 语法：最后一项后面**不能**有多余逗号，引号必须是英文 `"`
+- 图片要先 commit，再改 JSON（或两者一起提交），否则构建时图片还不存在
+
+### 修改 / 删除已有产品
+
+- **改文案、价格、图片**：直接改 `data/products.json` 对应字段。**不要改 `key`**——改了等于换了网址，之前分享出去的链接会 404
+- **给已有产品加图**：上传图片后，在它的 `gallery` 数组里加文件名
+- **删除产品**：从数组里删掉那一块（注意前后逗号），再手动删掉 GitHub 上的 `product/<key>/` 目录和图片。构建不会替你清理旧目录
+- **改完都在 Actions 里确认变绿**，失败时点开看红色步骤的日志，八成是 JSON 逗号或引号写错了
 
 ---
 
