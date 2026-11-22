@@ -34,7 +34,7 @@ PRODUCT_COLS = [
     ('stars', 8, '评分 0-5'),
     ('reviewCount', 11, '评价总数（留空=按 reviews 条数）'),
     ('sw', 22, '色块颜色，逗号分隔'),
-    ('gallery', 40, '必填 · 图片文件名，逗号分隔，第一张是主图'),
+    ('gallery', 40, '必填 · 图片文件名或图片链接，逗号分隔，第一张是主图'),
 ]
 FEATURE_COLS = 6
 TAIL_COLS = [
@@ -68,9 +68,11 @@ GUIDE = [
     ('stars      评分 0-5，可写 4.9。留空默认 4.8。星级图标按四舍五入取整。', False),
     ('reviewCount 评价总数，用来显示 "Based on N verified reviews"。留空则按 reviews 表的条数算。', False),
     ('sw         色块颜色，可写 #8a9c8b，也可写 white / black / sage / oak / gold 等色名。多个用逗号分隔。', False),
-    ('gallery    必填。图片文件名，不带 .jpg 后缀，多张用逗号分隔，第一张是主图。', False),
-    ('           例如：bv390-main, bv390-front, bv390-drawer', False),
-    ('           图片本体要上传到 images/details/ 目录，文件名必须对得上，否则详情页会裂图。', False),
+    ('gallery    必填。可以填本地文件名，也可以填完整图片链接，多张用逗号分隔，第一张是主图。', False),
+    ('           文件名写法：bv390-main, bv390-front（不带 .jpg；图片要上传到 images/details/）', False),
+    ('           链接写法：https://cdn.xxx.com/bv390-main.jpg, https://cdn.xxx.com/bv390-2.jpg', False),
+    ('           两种可以混着写。文件名对不上会裂图；链接没法在构建时校验，写错也是裂图。', False),
+    ('           链接必须是图片直链（结尾是 .jpg / .png / .webp），网盘分享页、详情页链接不行。', False),
     ('Feature 1-6 五点卖点，一行一条。用「小标题：正文」格式最好读，例如：', False),
     ('           Double Sink Convenience: The 48" width with two basins is perfect for couples.', False),
     ('           用不到的行留空即可，也可以自己加 Feature 7、8 列。', False),
@@ -88,7 +90,8 @@ GUIDE = [
     ('一款产品至少要有一条评价，否则详情页不会显示评价区（这是刻意的，避免出现 Based on 0 reviews）。', False),
     ('', False),
     ('四、新增一款产品的完整流程', True),
-    ('1. 把产品图压到 1400px 宽，命名成 bv390-main.jpg 这种格式，上传到 images/details/。', False),
+    ('1. 准备图片：本地图压到 1400px 宽、命名 bv390-main.jpg 后上传到 images/details/；', False),
+    ('   或者直接把图床/CDN 的图片直链填进 gallery 列，不传图也能上架。', False),
     ('2. 在 products 表最后加一行，填 key / name / price / gallery 等。', False),
     ('3. 需要的话在 specs、reviews 表里补上这个 key 对应的行。', False),
     ('4. 保存成 .xlsx，拖到 GitHub 仓库上传，等 Actions 转绿。', False),

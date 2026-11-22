@@ -84,6 +84,30 @@ def esc(t, quote=True):
     return html.escape(str(t), quote=quote)
 
 
+# ---------------- 图片地址 ----------------
+# gallery 里每一项既可以是本地文件名（bv390-main），也可以是完整外链
+IMG_URL_RE = re.compile(r'^(?:https?:)?//', re.I)
+
+
+def is_img_url(g):
+    s = str(g or '').strip()
+    return bool(IMG_URL_RE.match(s)) or s.lower().startswith('data:')
+
+
+def img_src(g, prefix=''):
+    """页面里用的 src：外链原样返回，本地文件名拼 images/details/<名字>.jpg"""
+    g = str(g)
+    return g if is_img_url(g) else prefix + 'images/details/' + g + '.jpg'
+
+
+def img_abs(g):
+    """og:image / 结构化数据要绝对地址"""
+    g = str(g)
+    if is_img_url(g):
+        return 'https:' + g if g.startswith('//') else g
+    return SITE + '/images/details/' + g + '.jpg'
+
+
 def money(v):
     return '$' + ('%.2f' % float(v))
 
@@ -96,8 +120,8 @@ def render_thumbs(p):
     for i, g in enumerate(p['gallery']):
         cls = 'detail-thumb active' if i == 0 else 'detail-thumb'
         out.append(
-            '<img class="%s" src="../../images/details/%s.jpg" onclick="pickImg(%d)" '
-            'alt="%s view %d">' % (cls, g, i, name, i + 1)
+            '<img class="%s" src="%s" onclick="pickImg(%d)" '
+            'alt="%s view %d">' % (cls, img_src(g, '../../'), i, name, i + 1)
         )
     return ''.join(out)
 
@@ -182,10 +206,10 @@ def render_related(p, products):
     for q in picks:
         cards += (
             '<div class="card"><a href="../%s/"><div class="card-img">'
-            '<img src="../../images/details/%s.jpg" alt="%s" loading="lazy"></div></a>'
+            '<img src="%s" alt="%s" loading="lazy"></div></a>'
             '<a href="../%s/"><div class="card-info"><div class="card-title">%s</div>'
             '<div class="card-sub">%s</div><div class="price">%s</div></div></a></div>'
-            % (q['key'], q['gallery'][0], esc(q['name']), q['key'], esc(q['name']),
+            % (q['key'], img_src(q['gallery'][0], '../../'), esc(q['name']), q['key'], esc(q['name']),
                esc(q.get('sub', '')), money(q['price']))
         )
     return ('<div class="rel-sec"><div class="sec-head" style="text-align:left;margin:0 0 26px;">'
@@ -196,7 +220,7 @@ def render_related(p, products):
 def render_page(p, products):
     tpl = open(TPL, encoding='utf-8').read()
     url = '%s/product/%s/' % (SITE, p['key'])
-    og_img = '%s/images/details/%s.jpg' % (SITE, p['gallery'][0])
+    og_img = img_abs(p['gallery'][0])
 
     repl = {
         '{{TITLE}}': esc('%s | Eclife Bathroom Vanities' % p['name']),
@@ -210,7 +234,7 @@ def render_page(p, products):
         '{{BADGE}}': esc(p.get('badge') or 'Eclife Collection'),
         '{{STARS}}': star_html(p['stars']) + '<span>%.1f &middot; %d reviews</span>' % (float(p['stars']), p.get('reviewCount') or 0),
         '{{PRICE}}': render_price(p),
-        '{{MAIN_IMG}}': '../../images/details/%s.jpg' % p['gallery'][0],
+        '{{MAIN_IMG}}': img_src(p['gallery'][0], '../../'),
         '{{THUMBS}}': render_thumbs(p),
         '{{SWATCHES}}': render_swatches(p),
         '{{FEATURES}}': render_features(p),
@@ -240,9 +264,10 @@ def main():
         open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8', newline='\n').write(
             render_page(p, products))
 
-        # 检查图片是否存在
+        # 检查图片是否存在（外链跳过，构建时无法校验）
         missing = [g for g in p['gallery']
-                   if not os.path.exists(os.path.join(ROOT, 'images', 'details', g + '.jpg'))]
+                   if not is_img_url(g)
+                   and not os.path.exists(os.path.join(ROOT, 'images', 'details', g + '.jpg'))]
         flag = '' if not missing else '  !! 缺图: ' + ','.join(missing)
         print('  page  %-14s %d imgs%s' % (p['key'], len(p['gallery']), flag))
 

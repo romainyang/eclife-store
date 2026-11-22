@@ -59,6 +59,12 @@ products.xlsx 上传 → Actions 运行 excel_to_products.py → 生成 data/pro
 - 产品图：https://github.com/romainyang/eclife-store/upload/main/images/details
 - 看构建进度：https://github.com/romainyang/eclife-store/actions
 
+> **图片有两种填法，`gallery` 列都支持**：
+> ① 本地文件名 `bv390-main`（先把图传到 `images/details/`）；
+> ② 直接写图片链接 `https://cdn.xxx.com/bv390-main.jpg`，不用传图也能上架。
+> 两种可以同一行混着写，逗号分隔。链接必须是**图片直链**（浏览器打开就是一张图，结尾通常是 `.jpg/.png/.webp`），
+> 网盘分享页、商品详情页网址不行。外链失效或被防盗链，图会裂，正式卖货建议图还是放自己仓库里。
+
 > 只要有 `products.xlsx`，它就是老大：每次构建都会覆盖 `data/products.json`。想改用 JSON 手改，先把这个文件从仓库删掉（或本地 `python build.py --from-json`）。
 >
 > Excel 写错了不会把站点搞坏：构建会直接失败并在 Actions 里用中文列出「第几行哪一列错了」，线上保持上一版。
@@ -87,7 +93,7 @@ python build.py
 | `badge` | ⬜ | 角标，如 `New` / `Sale` / `Best Seller`；留空显示 `Eclife Collection` |
 | `stars` | ✅ | 评分，如 `4.7` |
 | `sw` | ✅ | 色板颜色数组，如 `["#f4f1ea","#292722"]` |
-| `gallery` | ✅ | 图片文件名数组（不含路径和 `.jpg`），第一张作主图 |
+| `gallery` | ✅ | 图片数组：本地文件名（不含路径和 `.jpg`）**或完整图片链接**，可混用；第一张作主图 |
 | `features` | ✅ | 卖点列表 |
 | `desc` | ✅ | 详细介绍，同时用作 SEO 描述 |
 | `specs` | ⬜ | 规格表，格式 `[["Height","33.5 in"], ...]`；不填则不显示规格区 |
@@ -120,9 +126,10 @@ python build.py
 > 照着把 `products` / `specs` / `reviews` 三张表的示例行改成你的产品，再整行复制到 `products.xlsx` 对应表的末尾即可。
 > 模板本身不要上传，它只是格式样本。
 
-1. **先传图**
-   https://github.com/romainyang/eclife-store/upload/main/images/details → 拖入图片 → Commit。
-   命名 `bv999-1.jpg`、`bv999-2.jpg`（英文小写、数字、连字符；宽 1400px 以内）。
+1. **准备图片（二选一）**
+   - 传图：https://github.com/romainyang/eclife-store/upload/main/images/details → 拖入 → Commit。
+     命名 `bv999-1.jpg`、`bv999-2.jpg`（英文小写、数字、连字符；宽 1400px 以内）。
+   - 不传图：直接拿图片直链（如 `https://cdn.xxx.com/bv999-1.jpg`），第 2 步填进 `gallery` 即可。
 2. **填表**
    打开 `products.xlsx` → **products** 表最后一行往下加：
 
@@ -137,7 +144,7 @@ python build.py
    badge   New              ← 有下拉，也可以留空
    stars   4.6
    sw      white            ← 可写 #f4f1ea，也可写 white / sage / oak
-   gallery bv999-1, bv999-2 ← 逗号分隔，不带 .jpg，第一张是主图
+   gallery bv999-1, bv999-2 ← 逗号分隔，文件名或图片链接都行，第一张是主图
    Feature 1..6              ← 一行一条卖点
    desc    ...              ← 详情页正文 + SEO 描述
    ```

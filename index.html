@@ -593,7 +593,8 @@ const findBySlug=s=>products.find(p=>p.key===s||p.id===s);
 const detailURL=p=>'/product/'+encodeURIComponent(slugOf(p));
 const cartCount=()=>cart.reduce((s,i)=>s+i.qty,0);
 const cartSubtotal=()=>cart.reduce((s,i)=>s+findP(i.id).price*i.qty,0);
-const gallerySrc=(name)=>`images/details/${name}.jpg`;
+const isImgUrl=s=>/^(https?:)?\/\//i.test(s)||String(s).toLowerCase().startsWith('data:');
+const gallerySrc=(name)=>isImgUrl(name)?name:`images/details/${name}.jpg`;
 const imgOf=p=>gallerySrc(p.gallery[0]);
 
 /* ============ CATEGORY + FILTER BUILD ============ */
