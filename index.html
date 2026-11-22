@@ -596,15 +596,18 @@ const gallerySrc=(name)=>`images/details/${name}.jpg`;
 const imgOf=p=>gallerySrc(p.gallery[0]);
 
 /* ============ CATEGORY + FILTER BUILD ============ */
+/* at(i) 防越界：产品数量变化时不会因为取到 undefined 而整段脚本崩掉 */
+const at=i=>products[i]||products[0];
+const byMatch=(fn,i)=>products.find(fn)||at(i);
 const cats=[
-  {label:'Double Sink',filter:'double',img:imgOf(products[0])},
-  {label:'Single Sink',filter:'single',img:imgOf(products[2])},
-  {label:'Fluted & Reeded',filter:'fluted',img:imgOf(products[3])},
-  {label:'Floating',filter:'floating',img:imgOf(products[4])},
-  {label:'Best Sellers',filter:'bestseller',img:imgOf(products[1])},
-  {label:'On Sale',filter:'sale',img:imgOf(products[11])},
-  {label:'White Finish',filter:'white',img:imgOf(products[6])},
-  {label:'Green Tones',filter:'green',img:imgOf(products[10])}
+  {label:'Double Sink',filter:'double',img:imgOf(at(0))},
+  {label:'Single Sink',filter:'single',img:imgOf(at(2))},
+  {label:'Fluted & Reeded',filter:'fluted',img:imgOf(at(3))},
+  {label:'Floating',filter:'floating',img:imgOf(at(4))},
+  {label:'Best Sellers',filter:'bestseller',img:imgOf(at(1))},
+  {label:'On Sale',filter:'sale',img:imgOf(byMatch(p=>!!p.was,0))},
+  {label:'White Finish',filter:'white',img:imgOf(at(6))},
+  {label:'Green Tones',filter:'green',img:imgOf(byMatch(p=>(p.sw||[]).some(c=>['#3d5a45','#6b7d6a','#8a9c8b'].indexOf(c.toLowerCase())>-1),0))}
 ];
 $('#cats').innerHTML=cats.map(c=>`<div class="cat" data-filter="${c.filter}"><img src="${c.img}" alt="${c.label}"><div class="lbl"><strong>${c.label}</strong></div></div>`).join('');
 const filterBtns=[['all','All Vanities'],['double','Double Sink'],['single','Single Sink'],['24','24 inch'],['30','30 inch'],['48','48 inch'],['60','60 inch'],['72','72 inch']];

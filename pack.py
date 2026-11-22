@@ -8,6 +8,7 @@ OUT = os.path.join(os.path.dirname(ROOT), 'eclife-site.zip')
 
 EXCLUDE_DIRS = {'.git', '.github', 'data', 'templates', '__pycache__', '.wrangler', '_site'}
 EXCLUDE_FILES = {'build.py', 'pack.py', 'README.md', '.gitignore', '.gitattributes',
+                 'products.xlsx', 'excel_to_products.py', 'make_products_xlsx.py',
                  '_p.js', '_products_new.json'}
 
 

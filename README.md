@@ -11,7 +11,10 @@
 ```
 eclife-store/
 ├─ index.html              首页（产品列表、品牌故事、购物车入口）
-├─ data/products.json      ★ 唯一数据源：所有产品信息都写在这里
+├─ products.xlsx           ★ 产品表（推荐改这个，上传即可自动上线）
+├─ data/products.json      ★ 数据源：所有产品信息（Excel 会自动转换成它）
+├─ excel_to_products.py    Excel → JSON 转换器（build.py 自动调用）
+├─ make_products_xlsx.py   从现有 JSON 反向导出 Excel（一般不用跑）
 ├─ templates/product.html  产品详情页模板（含占位符，一般不用改）
 ├─ build.py                ★ 构建脚本：生成详情页 / 同步首页 / 更新 sitemap
 ├─ product/<key>/index.html  自动生成的产品详情页，不要手改
@@ -31,9 +34,37 @@ eclife-store/
 
 ---
 
-## 改内容：只动一个文件
+## 改内容：两条路，选一条
 
-所有产品信息都在 `data/products.json`，改完执行：
+### 路线 1（推荐）：改 `products.xlsx`
+
+仓库根目录的 `products.xlsx` 一共有 4 张表：
+
+- **products** —— 一行一款产品，填标题、价格、图片、卖点
+- **specs** —— 规格参数，长表：`key | attribute | value`
+- **reviews** —— 客户评价，长表：`key | rating | title | author | date | body | helpful`
+- **说明** —— 每列怎么填都写在里面
+
+改完保存，**上传到 GitHub 覆盖旧文件**，剩下的全自动：
+
+```
+products.xlsx 上传 → Actions 运行 excel_to_products.py → 生成 data/products.json
+                    → build.py 重建所有详情页 → 发布
+```
+
+上传入口（收藏这几个链接）：
+
+- 产品表：https://github.com/romainyang/eclife-store/upload/main
+- 产品图：https://github.com/romainyang/eclife-store/upload/main/images/details
+- 看构建进度：https://github.com/romainyang/eclife-store/actions
+
+> 只要有 `products.xlsx`，它就是老大：每次构建都会覆盖 `data/products.json`。想改用 JSON 手改，先把这个文件从仓库删掉（或本地 `python build.py --from-json`）。
+>
+> Excel 写错了不会把站点搞坏：构建会直接失败并在 Actions 里用中文列出「第几行哪一列错了」，线上保持上一版。
+
+### 路线 2（进阶）：直接改 `data/products.json`
+
+适合批量替换、或想精确控制 JSON 字段。改完执行：
 
 ```bash
 python build.py
@@ -82,7 +113,35 @@ python build.py
 
 ## 新增一款产品
 
-### 方式 A：全程在 GitHub 网页上做（不用命令行）
+### 方式 A：Excel 表（最快，手机上也能做完）
+
+1. **先传图**
+   https://github.com/romainyang/eclife-store/upload/main/images/details → 拖入图片 → Commit。
+   命名 `bv999-1.jpg`、`bv999-2.jpg`（英文小写、数字、连字符；宽 1400px 以内）。
+2. **填表**
+   打开 `products.xlsx` → **products** 表最后一行往下加：
+
+   ```
+   key     bv999            ← 决定网址 /product/bv999/，只能用 a-z 0-9 连字符
+   name    Eclife 30" Bathroom Vanity with Sink
+   sub     Solid Wood · Soft-Close · Freestanding
+   size    30               ← 首页按尺寸筛选靠它
+   type    single           ← 有下拉：single / double
+   price   529.99
+   was     649.99           ← 不促销就留空
+   badge   New              ← 有下拉，也可以留空
+   stars   4.6
+   sw      white            ← 可写 #f4f1ea，也可写 white / sage / oak
+   gallery bv999-1, bv999-2 ← 逗号分隔，不带 .jpg，第一张是主图
+   Feature 1..6              ← 一行一条卖点
+   desc    ...              ← 详情页正文 + SEO 描述
+   ```
+
+   规格去 **specs** 表加行（`bv999 | Height | 33.5 in`），评价去 **reviews** 表加行。
+3. **上传覆盖** https://github.com/romainyang/eclife-store/upload/main → 拖入 `products.xlsx` → **Commit changes**（提示覆盖就确认）。
+4. **等 1 分钟** https://github.com/romainyang/eclife-store/actions 变绿勾即上线，打开 `https://yange.asia/product/bv999/` 检查。
+
+### 方式 B：全程在 GitHub 网页上改 JSON（不装 Excel 也能做）
 
 1. **上传图片**
    打开 https://github.com/romainyang/eclife-store/tree/main/images/details → 右上 **Add file → Upload files** → 拖入图片 → **Commit changes**。
@@ -94,7 +153,7 @@ python build.py
    打开 https://github.com/romainyang/eclife-store/actions ，会看到一次 `Build & deploy to GitHub Pages` 在跑，变绿勾即上线。
 4. **访问新网址** `https://yange.asia/product/bv999/`
 
-### 方式 B：本地改（发布前能预览）
+### 方式 C：本地改（发布前能预览）
 
 ```bash
 cd C:/Users/romai/WorkBuddy/2026-11-17-19-59-27/eclife-store
@@ -143,6 +202,7 @@ git add -A && git commit -m "add bv999" && git push
 - `gallery` 只写文件名，不带 `images/details/` 前缀、不带 `.jpg` 后缀，第一张是主图
 - JSON 语法：最后一项后面**不能**有多余逗号，引号必须是英文 `"`
 - 图片要先 commit，再改 JSON（或两者一起提交），否则构建时图片还不存在
+- 用 Excel 的话：上面 5 条同样适用，另外别删第 2 行灰色说明行（程序会自动跳过它），也别改已有的 `id`
 
 ### 修改 / 删除已有产品
 
@@ -156,10 +216,13 @@ git add -A && git commit -m "add bv999" && git push
 ## 本地预览
 
 ```bash
+python build.py                # 先构建（有 products.xlsx 会自动从表格读数据）
 python -m http.server 8080
 ```
 
 浏览器打开 http://localhost:8080 （不要直接双击 index.html，相对路径会失效）
+
+> 本机没装 openpyxl 时先 `python -m pip install openpyxl`；不想用它就 `python build.py --from-json` 直接读 JSON。
 
 ---
 

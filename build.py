@@ -2,8 +2,12 @@
 """
 Eclife 站点构建脚本
 ====================
-唯一数据源: data/products.json
-执行: python build.py
+唯一数据源（Excel 优先）:
+  products.xlsx        —— 有它就先用 excel_to_products.py 转成 data/products.json
+  data/products.json   —— 没有 xlsx 时直接用它
+
+执行: python build.py              # 有 products.xlsx 就先转换
+      python build.py --from-json  # 忽略 Excel，直接用 json
 
 它会做三件事:
   1. 为每款产品生成 product/<key>/index.html
@@ -20,6 +24,21 @@ SITE = 'https://yange.asia'
 ROOT = os.path.dirname(os.path.abspath(__file__))
 TPL = os.path.join(ROOT, 'templates', 'product.html')
 DATA = os.path.join(ROOT, 'data', 'products.json')
+XLSX = os.path.join(ROOT, 'products.xlsx')
+
+
+def sync_from_excel():
+    """仓库根目录有 products.xlsx 时，以它为准重新生成 data/products.json"""
+    if not os.path.exists(XLSX):
+        return False
+    sys.path.insert(0, ROOT)
+    import excel_to_products
+    try:
+        excel_to_products.convert(XLSX, DATA)
+    except excel_to_products.ExcelError as e:
+        print('\n[build] products.xlsx 有问题，构建中止：\n%s\n' % e, file=sys.stderr)
+        raise SystemExit(1)
+    return True
 
 STAR = '&#9733;' * 5
 
@@ -168,7 +187,7 @@ def render_page(p, products):
         '{{NAME}}': esc(p['name']),
         '{{SUB}}': esc(p.get('sub', '')),
         '{{BADGE}}': esc(p.get('badge') or 'Eclife Collection'),
-        '{{STARS}}': star_html(p['stars']) + '<span>%.1f &middot; %d reviews</span>' % (float(p['stars']), p.get('reviewCount', 0)),
+        '{{STARS}}': star_html(p['stars']) + '<span>%.1f &middot; %d reviews</span>' % (float(p['stars']), p.get('reviewCount') or 0),
         '{{PRICE}}': render_price(p),
         '{{MAIN_IMG}}': '../../images/details/%s.jpg' % p['gallery'][0],
         '{{THUMBS}}': render_thumbs(p),
@@ -187,6 +206,8 @@ def render_page(p, products):
 
 
 def main():
+    if '--from-json' not in sys.argv:
+        sync_from_excel()
     products = json.load(open(DATA, encoding='utf-8'))
     keys = [p['key'] for p in products]
     assert len(keys) == len(set(keys)), 'key 有重复'
@@ -223,7 +244,7 @@ def main():
         '    <changefreq>%s</changefreq>\n    <priority>%s</priority>\n  </url>\n'
         % (u, '2026-11-22', cf, pr) for u, pr, cf in urls
     )
-    open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8').write(
+    open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8', newline='\n').write(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + body + '</urlset>\n'
     )
