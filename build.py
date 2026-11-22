@@ -94,7 +94,10 @@ def render_price(p):
 
 
 def render_reviews(p):
-    dist = p.get('ratingDist') or [[75, 75], [16, 16], [5, 5], [2, 2], [2, 2]]
+    # 没有任何评价的产品，整块不渲染（避免出现 "Based on 0 verified reviews" 的空区块）
+    if not p.get('reviews') and not p.get('reviewCount'):
+        return ''
+    dist = p.get('ratingDist') or []
     bars = ''.join(
         '<div class="dr-bar-row"><span class="lbl">%d star</span>'
         '<span class="dr-bar"><i style="width:%d%%"></i></span><span class="pct">%d%%</span></div>'
