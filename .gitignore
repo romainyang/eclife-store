@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.git/
+.wrangler/
+*.zip
+_p.js
+_products_new.json
+_orig_product/
