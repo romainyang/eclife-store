@@ -12,12 +12,13 @@
 eclife-store/
 ├─ index.html              首页（产品列表、品牌故事、购物车入口）
 ├─ products.xlsx           ★ 产品表（推荐改这个，上传即可自动上线）
-├─ new-product-template.xlsx  新品填写模板（1 行完整示例，复制到 products.xlsx 用）
+│                            5 张表：products / images / specs / reviews / 说明
+├─ new-product-template.xlsx  新品填写模板（与产品表结构完全一致，数据是 1 行示例）
 ├─ data/products.json      ★ 数据源：所有产品信息（Excel 会自动转换成它）
-├─ excel_to_products.py    Excel → JSON 转换器（build.py 自动调用）
-├─ make_products_xlsx.py   从现有 JSON 反向导出 Excel（一般不用跑）
+├─ excel_to_products.py    Excel → JSON 转换器（build.py 自动调用，合并 4 张数据表）
+├─ make_products_xlsx.py   从 JSON 反向导出两个表格（两张表共用同一套结构）
 ├─ templates/product.html  产品详情页模板（含占位符，一般不用改）
-├─ build.py                ★ 构建脚本：生成详情页 / 同步首页 / 更新 sitemap
+├─ build.py                ★ 构建脚本：抓图压缩 / 生成详情页 / 同步首页 / 更新 sitemap
 ├─ product/<key>/index.html  自动生成的产品详情页，不要手改
 ├─ images/details/         产品图片（jpg，建议 1400px 宽以内）
 ├─ 404.html               404 页
@@ -39,18 +40,22 @@ eclife-store/
 
 ### 路线 1（推荐）：改 `products.xlsx`
 
-仓库根目录的 `products.xlsx` 一共有 4 张表：
+仓库根目录的 `products.xlsx` 一共有 5 张表：
 
-- **products** —— 一行一款产品，填标题、价格、图片、卖点
+- **products** —— 一行一款产品，填标题、价格、卖点
+- **images** —— 一行一款产品的图片：`key | Image 1 … Image 15`，至少 5 张，Image 1 是主图
 - **specs** —— 规格参数，长表：`key | attribute | value`
 - **reviews** —— 客户评价，长表：`key | rating | title | author | date | body | helpful`
 - **说明** —— 每列怎么填都写在里面
 
+`new-product-template.xlsx` 和它的**表结构完全一致**（同一套表、同一套列、同一套说明），只是数据换成了一行示例 `bv390`，照着复制即可。
+
 改完保存，**上传到 GitHub 覆盖旧文件**，剩下的全自动：
 
 ```
-products.xlsx 上传 → Actions 运行 excel_to_products.py → 生成 data/products.json
-                    → 抓取 gallery 里的外链图片存进 images/details/（自动回提交）
+products.xlsx 上传 → Actions 运行 excel_to_products.py（products + images + specs + reviews 合并）
+                    → 生成 data/products.json
+                    → 下载 images 表里的外链图片，超过 300KB 自动压到 300KB 以内（自动回提交）
                     → build.py 重建所有详情页 → 发布
 ```
 
@@ -60,12 +65,15 @@ products.xlsx 上传 → Actions 运行 excel_to_products.py → 生成 data/pro
 - 产品图：https://github.com/romainyang/eclife-store/upload/main/images/details
 - 看构建进度：https://github.com/romainyang/eclife-store/actions
 
-> **图片有两种填法，`gallery` 列都支持**：
+> **图片统一填在 `images` 表**，一行一款产品，第一列是 `key`：
 > ① 本地文件名 `bv390-main`（先把图传到 `images/details/`）；
 > ② 图片链接 `https://cdn.xxx.com/bv390-main.jpg` —— **不用自己传图**，构建时会自动下载进 `images/details/`，
-> 存成 `<key>-序号.jpg`，页面改用仓库里的这张本地图。每次构建都重新抓一遍并覆盖，所以换链接重建就生效。
-> 两种可以同一行混着写，逗号分隔。链接必须是**图片直链**（浏览器打开就是一张图），网盘分享页、商品详情页抓不下来，
+> 存成 `<key>-序号.<后缀>`，页面改用仓库里的这张本地图。
+> 两种可以在同一行混着填，空格子会被跳过、图片按顺序往前排。
+> 链接必须是**图片直链**（浏览器打开就是一张图），网盘分享页、商品详情页抓不下来，
 > 这种情况那张图会先退回直用外链，并在构建日志里给警告。
+> 下载下来的图如果超过 300KB，会自动压到 300KB 以内：长边先缩到 1400px，再逐级降质量重编码，
+> 日志里会写成 `zip bv390-1 1375 KB -> 207 KB (jpg q90, 宽 1400)`。
 
 > 只要有 `products.xlsx`，它就是老大：每次构建都会覆盖 `data/products.json`。想改用 JSON 手改，先把这个文件从仓库删掉（或本地 `python build.py --from-json`）。
 >
@@ -95,7 +103,7 @@ python build.py
 | `badge` | ⬜ | 角标，如 `New` / `Sale` / `Best Seller`；留空显示 `Eclife Collection` |
 | `stars` | ✅ | 评分，如 `4.7` |
 | `sw` | ✅ | 色板颜色数组，如 `["#f4f1ea","#292722"]` |
-| `gallery` | ✅ | 图片数组：本地文件名**或图片链接**，可混用；链接会被自动下载进 `images/details/`；第一张作主图 |
+| `gallery` | ✅ | 图片数组：本地文件名**或图片链接**，可混用；链接会被自动下载（>300KB 自动压缩）进 `images/details/`；第一张作主图。Excel 里对应 `images` 表 |
 | `features` | ✅ | 卖点列表 |
 | `desc` | ✅ | 详细介绍，同时用作 SEO 描述 |
 | `specs` | ⬜ | 规格表，格式 `[["Height","33.5 in"], ...]`；不填则不显示规格区 |
@@ -124,15 +132,15 @@ python build.py
 
 ### 方式 A：Excel 表（最快，手机上也能做完）
 
-> 懒人版：先下载仓库根目录的 `new-product-template.xlsx`（带 1 行完整示例 + 下拉 + 填写说明），
-> 照着把 `products` / `specs` / `reviews` 三张表的示例行改成你的产品，再整行复制到 `products.xlsx` 对应表的末尾即可。
+> 懒人版：先下载仓库根目录的 `new-product-template.xlsx`（结构和 `products.xlsx` 完全一致，数据是 1 行完整示例 + 下拉 + 填写说明），
+> 照着把 `products` / `images` / `specs` / `reviews` 四张表的示例行改成你的产品，再整行复制到 `products.xlsx` 对应表的末尾即可。
 > 模板本身不要上传，它只是格式样本。
 
 1. **准备图片（二选一）**
    - 传图：https://github.com/romainyang/eclife-store/upload/main/images/details → 拖入 → Commit。
      命名 `bv999-1.jpg`、`bv999-2.jpg`（英文小写、数字、连字符；宽 1400px 以内）。
-   - 不传图：直接拿图片直链（如 `https://cdn.xxx.com/bv999-1.jpg`），第 2 步填进 `gallery`，
-     构建时会自动下载到 `images/details/`，不用手动上传。
+   - 不传图：直接拿图片直链（如 `https://cdn.xxx.com/bv999-1.jpg`），第 3 步填进 `images` 表，
+     构建时会自动下载到 `images/details/`，超过 300KB 还会自动压缩，不用手动处理。
 2. **填表**
    打开 `products.xlsx` → **products** 表最后一行往下加：
 
@@ -147,14 +155,16 @@ python build.py
    badge   New              ← 有下拉，也可以留空
    stars   4.6
    sw      white            ← 可写 #f4f1ea，也可写 white / sage / oak
-   gallery bv999-1, bv999-2 ← 逗号分隔，文件名或图片链接都行，第一张是主图
    Feature 1..6              ← 一行一条卖点
    desc    ...              ← 详情页正文 + SEO 描述
    ```
 
+3. **加图片**
+   切到 **images** 表，最后一行往下加：第一列填 `bv999`，后面 `Image 1` 起依次填
+   `bv999-1`、`bv999-2`……（至少 5 张，最多 15 张，Image 1 是主图；文件名和图片链接可以混填）。
    规格去 **specs** 表加行（`bv999 | Height | 33.5 in`），评价去 **reviews** 表加行。
-3. **上传覆盖** https://github.com/romainyang/eclife-store/upload/main → 拖入 `products.xlsx` → **Commit changes**（提示覆盖就确认）。
-4. **等 1 分钟** https://github.com/romainyang/eclife-store/actions 变绿勾即上线，打开 `https://yange.asia/product/bv999/` 检查。
+4. **上传覆盖** https://github.com/romainyang/eclife-store/upload/main → 拖入 `products.xlsx` → **Commit changes**（提示覆盖就确认）。
+5. **等 1 分钟** https://github.com/romainyang/eclife-store/actions 变绿勾即上线，打开 `https://yange.asia/product/bv999/` 检查。
 
 ### 方式 B：全程在 GitHub 网页上改 JSON（不装 Excel 也能做）
 
@@ -214,7 +224,7 @@ git add -A && git commit -m "add bv999" && git push
 
 - `key` 必须唯一，决定网址 `/product/<key>/`，只能英文小写、数字、连字符
 - `id` 必须唯一，购物车靠它区分产品，重复会导致加购串产品
-- `gallery` 只写文件名，不带 `images/details/` 前缀、不带 `.jpg` 后缀，第一张是主图
+- `gallery`（JSON 字段）只写文件名，不带 `images/details/` 前缀、不带 `.jpg` 后缀，第一张是主图；Excel 里对应 `images` 表的 Image 1–15
 - JSON 语法：最后一项后面**不能**有多余逗号，引号必须是英文 `"`
 - 图片要先 commit，再改 JSON（或两者一起提交），否则构建时图片还不存在
 - 用 Excel 的话：上面 5 条同样适用，另外别删第 2 行灰色说明行（程序会自动跳过它），也别改已有的 `id`

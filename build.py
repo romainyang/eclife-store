@@ -11,7 +11,7 @@ Eclife 站点构建脚本
       python build.py --no-fetch    # 跳过外链图片抓取（离线时用）
 
 它会做四件事:
-  1. gallery 里的图片外链 -> 下载进 images/details/，换成本地文件名
+  1. 图片外链 -> 下载进 images/details/，换成本地文件名；超过 300KB 自动压到 300KB 以内
   2. 为每款产品生成 product/<key>/index.html
   3. 同步首页 index.html 里的 products 数组
   4. 重新生成 sitemap.xml
@@ -169,6 +169,104 @@ def _existing_variants(stem):
     return None, None
 
 
+# ---------------- 图片压缩 ----------------
+# 从外链抓下来的图经常是 1-3MB 的原图，直接进仓库会把 repo 撑肥、页面也变慢。
+# 超过 300KB 就自动压：先缩到最长边 1400px，再逐级降质量重编码，直到低于 300KB。
+# 带透明的 PNG 尽量保留透明通道（必要时转 256 色），实在压不下去才铺白底转 JPEG。
+MAX_IMG_BYTES = 300 * 1024
+MAX_IMG_WIDTH = 1400
+
+try:
+    from PIL import Image, ImageOps
+    HAVE_PIL = True
+except ImportError:            # 本机没装也不影响构建，只是不压缩
+    HAVE_PIL = False
+
+
+def _encode(im, fmt, quality=None):
+    """按指定格式编码成字节；JPEG 会自动把透明通道铺成白底"""
+    import io
+    buf = io.BytesIO()
+    if fmt == 'JPEG':
+        if im.mode != 'RGB':
+            bg = Image.new('RGB', im.size, (255, 255, 255))
+            mask = im.split()[-1] if im.mode in ('RGBA', 'LA') else None
+            bg.paste(im, mask=mask)
+            im = bg
+        im.save(buf, 'JPEG', quality=quality, optimize=True, progressive=True)
+    elif fmt == 'WEBP':
+        im.save(buf, 'WEBP', quality=quality, method=4)
+    else:
+        im.save(buf, 'PNG', optimize=True, compress_level=9)
+    return buf.getvalue()
+
+
+def shrink_image(data, ext, label=''):
+    """超过 300KB 的图片压到 300KB 以内，返回 (bytes, 新后缀)"""
+    if len(data) <= MAX_IMG_BYTES:
+        return data, ext
+    if not HAVE_PIL:
+        print('  warn  %-18s %.0f KB 超过 300KB，但没装 Pillow，跳过压缩'
+              % (label, len(data) / 1024))
+        return data, ext
+
+    import io
+    try:
+        src = Image.open(io.BytesIO(data))
+        src.load()
+        if getattr(src, 'n_frames', 1) > 1:
+            print('  warn  %-18s 是动图，跳过压缩（%.0f KB）' % (label, len(data) / 1024))
+            return data, ext
+    except Exception as e:
+        print('  warn  %-18s 无法解码（%s），跳过压缩' % (label, e))
+        return data, ext
+
+    src = ImageOps.exif_transpose(src)      # 先按 EXIF 摆正，顺带丢掉元数据
+    has_alpha = src.mode in ('RGBA', 'LA') or (src.mode == 'P' and 'transparency' in src.info)
+    src = src.convert('RGBA' if has_alpha else 'RGB')
+
+    # 优先保留原格式特性：带透明的 png 先试 png / webp，其余直接走 jpeg
+    if ext == 'png' and has_alpha:
+        plans = ['PNG', 'WEBP', 'JPEG']
+    elif ext == 'webp':
+        plans = ['WEBP', 'JPEG']
+    else:
+        plans = ['JPEG']
+    exts = {'PNG': 'png', 'WEBP': 'webp', 'JPEG': 'jpg'}
+    qualities = (90, 86, 82, 78, 74, 70, 64, 58)
+
+    best_size, best_blob, best_ext = len(data), data, ext
+
+    for max_w in (MAX_IMG_WIDTH, 1200, 1000):
+        cur = src.copy()
+        if cur.width > max_w:
+            cur.thumbnail((max_w, 100000), Image.LANCZOS)
+        for fmt in plans:
+            cands = []
+            if fmt == 'PNG':
+                cands.append(('PNG', None, _encode(cur, 'PNG')))
+                try:
+                    cands.append(('PNG', '256色', _encode(
+                        cur.quantize(colors=256, method=Image.FASTOCTREE), 'PNG')))
+                except Exception:
+                    pass
+            else:
+                cands = [(exts[fmt], 'q%d' % q, _encode(cur, fmt, q)) for q in qualities]
+            for newext, tag, blob in cands:
+                if len(blob) <= MAX_IMG_BYTES:
+                    lost = '，透明通道已丢失' if (has_alpha and newext == 'jpg') else ''
+                    print('  zip   %-18s %.0f KB -> %.0f KB (%s%s, 宽 %d%s)'
+                          % (label, len(data) / 1024, len(blob) / 1024,
+                             newext, ' ' + tag if tag else '', cur.width, lost))
+                    return blob, newext
+                if len(blob) < best_size:
+                    best_size, best_blob, best_ext = len(blob), blob, newext
+
+    print('  warn  %-18s 压到极限还有 %.0f KB（已缩到 1000px），先按这个用'
+          % (label, best_size / 1024))
+    return best_blob, best_ext
+
+
 def fetch_remote_images(products):
     """把 gallery 里的外链下载到 images/details/<key>-<序号>.<后缀>
 
@@ -200,6 +298,7 @@ def fetch_remote_images(products):
                     print('  warn  %-18s 抓取失败（%s），这张先用外链顶着' % (stem, e))
                     gallery.append(g)
                 continue
+            data, ext = shrink_image(data, ext, stem)     # 超过 300KB 自动压
             name = '%s.%s' % (stem, ext)
             dest = os.path.join(IMG_DIR, name)
             same = os.path.exists(dest) and open(dest, 'rb').read() == data

@@ -27,8 +27,8 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies (读 products.xlsx 需要 openpyxl)
-        run: python -m pip install --quiet openpyxl
+      - name: Install dependencies (openpyxl 读表，pillow 压缩下载的图)
+        run: python -m pip install --quiet openpyxl pillow
 
       - name: Generate product pages
         run: python build.py

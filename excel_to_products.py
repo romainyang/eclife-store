@@ -10,10 +10,13 @@ build.py 会自动调用本模块（只要仓库根目录有 products.xlsx）。
     python excel_to_products.py            # 转换并写回 data/products.json
     python excel_to_products.py --check    # 只校验，不写文件
 
-三张表：
+四张表：
     products  一行一款产品（核心信息 + Feature 1..N）
+    images    一行一款产品：key | Image 1 .. Image 15（图片单独一张表）
     specs     长表：key | attribute | value
     reviews   长表：key | rating | title | author | date | body | helpful
+
+兼容旧文件：products 表里若还有 gallery 列，images 表没有该 key 时仍按老写法读。
 """
 from __future__ import annotations
 
@@ -32,6 +35,10 @@ SLUG_RE = re.compile(r'^[a-z0-9]+(?:-[a-z0-9]+)*$')
 # gallery 里可以直接写外链（http/https 或 //cdn...），不当作本地文件名处理
 IMG_URL_RE = re.compile(r'^(?:https?:)?//', re.I)
 IMG_EXT_RE = re.compile(r'\.(jpe?g|png|webp|gif|avif)$', re.I)
+
+# images 表：Image 1 .. Image 15，建议至少填 5 张
+IMAGES_MAX = 15
+IMAGES_MIN = 5
 
 
 def is_img_url(v):
@@ -62,7 +69,15 @@ HEADER_ALIASES = {
     '图片': 'gallery', '图片文件': 'gallery', '颜色': 'sw', '色块': 'sw',
     '尺寸': 'size', '类型': 'type', '标签': 'badge',
     '描述': 'desc', '副标题': 'sub', '评价数': 'reviewcount',
+    'sku': 'key', 'productkey': 'key', '产品编码': 'key', '产品编号': 'key',
+    '图片链接': 'gallery',
 }
+# images 表里 Image 1 / 图片1 / 图1 都认
+for _i in range(1, IMAGES_MAX + 3):
+    HEADER_ALIASES['图片%d' % _i] = 'image%d' % _i
+    HEADER_ALIASES['图%d' % _i] = 'image%d' % _i
+    HEADER_ALIASES['image%d' % _i] = 'image%d' % _i
+del _i
 
 
 class ExcelError(Exception):
@@ -173,6 +188,39 @@ def _rows(ws, cols, header_row):
         yield r, row
 
 
+def _images_map(wb, errors, warns):
+    """images 表：key | Image 1 .. Image N，一行一款产品的图片
+
+    返回 {key: {列序号: [图片…]}}；没有 images 表时返回空 dict（走旧的 gallery 列）。
+    """
+    if not any(w.title.strip().lower() == 'images' for w in wb.worksheets):
+        return {}
+    ws = _sheet(wb, 'images')
+    cols, hrow = _headers(ws, need=('key',))
+    img_cols = sorted(
+        (int(m.group(1)), n) for n, c in cols.items()
+        if (m := re.match(r'^image(\d+)$', n))
+    )
+    if not img_cols:
+        raise ExcelError('images 表里没有 Image 1 / Image 2 … 这样的列（第一列必须是 key）')
+
+    out, seen = {}, {}
+    for r, row in _rows(ws, cols, hrow):
+        key = _s(row['key']).lower()
+        if key in seen:
+            errors.append('images 第 %d 行：key「%s」和第 %d 行重复，一款产品只占一行'
+                          % (r, key, seen[key]))
+            continue
+        seen[key] = r
+        vals = {}
+        for idx, name in img_cols:
+            v = _s(row.get(name))
+            if v:
+                vals[idx] = v
+        out[key] = vals
+    return out
+
+
 # ---------------------------------------------------------------- 主转换
 
 def convert(xlsx=XLSX, out=DATA, write=True):
@@ -186,6 +234,9 @@ def convert(xlsx=XLSX, out=DATA, write=True):
 
     wb = openpyxl.load_workbook(xlsx, data_only=True)
     errors, warns = [], []
+
+    # ---- images（图片单独一张表，按 key 对应）
+    imgs = _images_map(wb, errors, warns)
 
     # ---- products
     ws = _sheet(wb, 'products')
@@ -219,8 +270,23 @@ def convert(xlsx=XLSX, out=DATA, write=True):
         try:
             name = _s(need('name', 'name 产品标题'))
             price = _num(need('price', 'price 售价'), 'price 售价', key, required=True)
-            gallery = _gallery(need('gallery', 'gallery 图片文件名'))
-            if not name or not gallery:
+
+            # 图片：优先 images 表里同 key 的那一行（Image 1..15），没有才读 products 的 gallery 列
+            cells = imgs.get(key) or {}
+            gallery = []
+            if cells:
+                for idx in sorted(cells):
+                    gallery.extend(_gallery(cells[idx]))
+            else:
+                gallery = _gallery(row.get('gallery'))
+            if not gallery:
+                errors.append('%s [%s] 没有图片：在 images 表这一行填 Image 1 到 Image 5 以上'
+                              % (where, key))
+                return None
+            if len(gallery) < IMAGES_MIN:
+                warns.append('%s [%s] 只有 %d 张图，建议至少 %d 张（主图/侧面/内部/细节/尺寸）'
+                             % (where, key, len(gallery), IMAGES_MIN))
+            if not name:
                 return None
 
             size = _s(row.get('size')).replace('.0', '')
@@ -315,6 +381,11 @@ def convert(xlsx=XLSX, out=DATA, write=True):
 
     by_key = {p['key']: p for p in products}
     bad_keys = set()   # 同一个 key 只报一次，避免级联刷屏
+
+    # ---- images 表里有、products 表里没有的 key
+    for k in sorted(imgs):
+        if k not in by_key:
+            errors.append('images 表：key「%s」在 products 表里不存在' % k)
 
     # ---- specs
     if any(w.title.strip().lower() == 'specs' for w in wb.worksheets):
