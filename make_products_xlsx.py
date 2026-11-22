@@ -188,7 +188,7 @@ def _col_index(cols, name):
     raise KeyError(name)
 
 
-def build(products, out, template=False):
+def build(products, out, template=False, nfeat=None):
     from openpyxl import Workbook
     from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
     from openpyxl.utils import get_column_letter
@@ -201,7 +201,8 @@ def build(products, out, template=False):
     thin = Side(style='thin', color='FFDDD8CE')
     border = Border(bottom=thin)
 
-    nfeat = max([len(p.get('features') or []) for p in products] + [FEATURE_COLS])
+    if nfeat is None:
+        nfeat = max([len(p.get('features') or []) for p in products] + [FEATURE_COLS])
     nfeat = max(FEATURE_COLS, min(nfeat, 10))
 
     wb = Workbook()
@@ -359,16 +360,22 @@ def main(argv):
     do_products = '--template' not in argv
     do_template = '--products' not in argv
 
-    if do_products:
+    # 卖点列数按真实数据算，两个文件共用同一个值，保证结构一致
+    nfeat = FEATURE_COLS
+    products = []
+    if os.path.exists(DATA):
         products = _load_products()
-        build(products, OUT_PRODUCTS)
+        nfeat = max([len(p.get('features') or []) for p in products] + [FEATURE_COLS])
+
+    if do_products:
+        build(products, OUT_PRODUCTS, nfeat=nfeat)
         print('wrote %s  (%d products, %d spec rows, %d review rows)'
               % (os.path.relpath(OUT_PRODUCTS, ROOT), len(products),
                  sum(len(p.get('specs') or []) for p in products),
                  sum(len(p.get('reviews') or []) for p in products)))
 
     if do_template:
-        build([SAMPLE_PRODUCT], OUT_TEMPLATE, template=True)
+        build([SAMPLE_PRODUCT], OUT_TEMPLATE, template=True, nfeat=nfeat)
         print('wrote %s  (示例产品 %s)' % (os.path.relpath(OUT_TEMPLATE, ROOT), SAMPLE_PRODUCT['key']))
     return 0
 
