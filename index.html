@@ -594,7 +594,8 @@ const detailURL=p=>'/product/'+encodeURIComponent(slugOf(p));
 const cartCount=()=>cart.reduce((s,i)=>s+i.qty,0);
 const cartSubtotal=()=>cart.reduce((s,i)=>s+findP(i.id).price*i.qty,0);
 const isImgUrl=s=>/^(https?:)?\/\//i.test(s)||String(s).toLowerCase().startsWith('data:');
-const gallerySrc=(name)=>isImgUrl(name)?name:`images/details/${name}.jpg`;
+const imgExt=/\.(jpe?g|png|webp|gif|avif)$/i;
+const gallerySrc=(name)=>isImgUrl(name)?name:`images/details/${imgExt.test(name)?name:name+'.jpg'}`;
 const imgOf=p=>gallerySrc(p.gallery[0]);
 
 /* ============ CATEGORY + FILTER BUILD ============ */

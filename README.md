@@ -50,6 +50,7 @@ eclife-store/
 
 ```
 products.xlsx 上传 → Actions 运行 excel_to_products.py → 生成 data/products.json
+                    → 抓取 gallery 里的外链图片存进 images/details/（自动回提交）
                     → build.py 重建所有详情页 → 发布
 ```
 
@@ -61,9 +62,10 @@ products.xlsx 上传 → Actions 运行 excel_to_products.py → 生成 data/pro
 
 > **图片有两种填法，`gallery` 列都支持**：
 > ① 本地文件名 `bv390-main`（先把图传到 `images/details/`）；
-> ② 直接写图片链接 `https://cdn.xxx.com/bv390-main.jpg`，不用传图也能上架。
-> 两种可以同一行混着写，逗号分隔。链接必须是**图片直链**（浏览器打开就是一张图，结尾通常是 `.jpg/.png/.webp`），
-> 网盘分享页、商品详情页网址不行。外链失效或被防盗链，图会裂，正式卖货建议图还是放自己仓库里。
+> ② 图片链接 `https://cdn.xxx.com/bv390-main.jpg` —— **不用自己传图**，构建时会自动下载进 `images/details/`，
+> 存成 `<key>-序号.jpg`，页面改用仓库里的这张本地图。每次构建都重新抓一遍并覆盖，所以换链接重建就生效。
+> 两种可以同一行混着写，逗号分隔。链接必须是**图片直链**（浏览器打开就是一张图），网盘分享页、商品详情页抓不下来，
+> 这种情况那张图会先退回直用外链，并在构建日志里给警告。
 
 > 只要有 `products.xlsx`，它就是老大：每次构建都会覆盖 `data/products.json`。想改用 JSON 手改，先把这个文件从仓库删掉（或本地 `python build.py --from-json`）。
 >
@@ -93,7 +95,7 @@ python build.py
 | `badge` | ⬜ | 角标，如 `New` / `Sale` / `Best Seller`；留空显示 `Eclife Collection` |
 | `stars` | ✅ | 评分，如 `4.7` |
 | `sw` | ✅ | 色板颜色数组，如 `["#f4f1ea","#292722"]` |
-| `gallery` | ✅ | 图片数组：本地文件名（不含路径和 `.jpg`）**或完整图片链接**，可混用；第一张作主图 |
+| `gallery` | ✅ | 图片数组：本地文件名**或图片链接**，可混用；链接会被自动下载进 `images/details/`；第一张作主图 |
 | `features` | ✅ | 卖点列表 |
 | `desc` | ✅ | 详细介绍，同时用作 SEO 描述 |
 | `specs` | ⬜ | 规格表，格式 `[["Height","33.5 in"], ...]`；不填则不显示规格区 |
@@ -129,7 +131,8 @@ python build.py
 1. **准备图片（二选一）**
    - 传图：https://github.com/romainyang/eclife-store/upload/main/images/details → 拖入 → Commit。
      命名 `bv999-1.jpg`、`bv999-2.jpg`（英文小写、数字、连字符；宽 1400px 以内）。
-   - 不传图：直接拿图片直链（如 `https://cdn.xxx.com/bv999-1.jpg`），第 2 步填进 `gallery` 即可。
+   - 不传图：直接拿图片直链（如 `https://cdn.xxx.com/bv999-1.jpg`），第 2 步填进 `gallery`，
+     构建时会自动下载到 `images/details/`，不用手动上传。
 2. **填表**
    打开 `products.xlsx` → **products** 表最后一行往下加：
 

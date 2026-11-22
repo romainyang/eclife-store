@@ -8,17 +8,20 @@ Eclife 站点构建脚本
 
 执行: python build.py              # 有 products.xlsx 就先转换
       python build.py --from-json  # 忽略 Excel，直接用 json
+      python build.py --no-fetch    # 跳过外链图片抓取（离线时用）
 
-它会做三件事:
-  1. 为每款产品生成 product/<key>/index.html
-  2. 同步首页 index.html 里的 products 数组
-  3. 重新生成 sitemap.xml
+它会做四件事:
+  1. gallery 里的图片外链 -> 下载进 images/details/，换成本地文件名
+  2. 为每款产品生成 product/<key>/index.html
+  3. 同步首页 index.html 里的 products 数组
+  4. 重新生成 sitemap.xml
 """
 import json
 import os
 import re
 import html
 import sys
+import urllib.request
 
 SITE = 'https://yange.asia'
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -95,9 +98,9 @@ def is_img_url(g):
 
 
 def img_src(g, prefix=''):
-    """页面里用的 src：外链原样返回，本地文件名拼 images/details/<名字>.jpg"""
+    """页面里用的 src：外链原样返回，本地文件名拼 images/details/<名字>"""
     g = str(g)
-    return g if is_img_url(g) else prefix + 'images/details/' + g + '.jpg'
+    return g if is_img_url(g) else prefix + 'images/details/' + local_file(g)
 
 
 def img_abs(g):
@@ -105,7 +108,115 @@ def img_abs(g):
     g = str(g)
     if is_img_url(g):
         return 'https:' + g if g.startswith('//') else g
-    return SITE + '/images/details/' + g + '.jpg'
+    return SITE + '/images/details/' + local_file(g)
+
+
+# ---------------- 外链图片抓取 ----------------
+# gallery 列可以直接写图片外链；构建时会自动下载存进 images/details/，
+# 页面最终用仓库里的本地文件名（快、稳、不依赖别人的图床）。抓取失败才退回外链。
+IMG_DIR = os.path.join(ROOT, 'images', 'details')
+LOCAL_EXT_RE = re.compile(r'\.(jpe?g|png|webp|gif|avif)$', re.I)
+IMG_EXTS = ('jpg', 'jpeg', 'png', 'webp', 'gif', 'avif')
+UA = 'Mozilla/5.0 (compatible; EclifeSiteBuild/1.0)'
+MAX_BYTES = 20 * 1024 * 1024
+
+
+def local_file(g):
+    """本地图片的实际文件名：没写后缀就按 .jpg"""
+    g = str(g)
+    return g if LOCAL_EXT_RE.search(g) else g + '.jpg'
+
+
+def sniff_ext(data):
+    """按文件头判断真实格式，避免把错误页 / 防盗链页面当图片存下来"""
+    if data[:3] == b'\xff\xd8\xff':
+        return 'jpg'
+    if data[:8] == b'\x89PNG\r\n\x1a\n':
+        return 'png'
+    if data[:6] in (b'GIF87a', b'GIF89a'):
+        return 'gif'
+    if data[:4] == b'RIFF' and data[8:12] == b'WEBP':
+        return 'webp'
+    if data[4:8] == b'ftyp' and data[8:12] in (b'avif', b'avis'):
+        return 'avif'
+    return None
+
+
+def _download(url, timeout=25):
+    req = urllib.request.Request(url, headers={
+        'User-Agent': UA,
+        'Accept': 'image/avif,image/webp,image/png,image/jpeg,image/*;q=0.8,*/*;q=0.5',
+    })
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        ctype = (r.headers.get('Content-Type') or '').lower()
+        data = r.read(MAX_BYTES + 1)
+    if len(data) > MAX_BYTES:
+        raise ValueError('文件超过 %d MB' % (MAX_BYTES // 1048576))
+    ext = sniff_ext(data)
+    if not ext:
+        raise ValueError('返回的不是图片（Content-Type: %s，多半是网页或防盗链拦截）'
+                         % (ctype or '未知'))
+    return data, ext
+
+
+def _existing_variants(stem):
+    """同一个 key-序号 之前抓过什么后缀的文件，返回 (文件名, 路径)"""
+    for ext in IMG_EXTS:
+        name = '%s.%s' % (stem, ext)
+        path = os.path.join(IMG_DIR, name)
+        if os.path.exists(path):
+            return name, path
+    return None, None
+
+
+def fetch_remote_images(products):
+    """把 gallery 里的外链下载到 images/details/<key>-<序号>.<后缀>
+
+    返回 True 表示某款产品的 gallery 被改成了本地文件名（需要回写 json）。
+    """
+    total = sum(1 for p in products for g in p['gallery'] if is_img_url(g))
+    if not total:
+        return False
+    os.makedirs(IMG_DIR, exist_ok=True)
+    print('  fetch: %d 张外链图片 -> images/details/' % total)
+    changed = False
+    for p in products:
+        before = list(p['gallery'])
+        gallery = []
+        for i, g in enumerate(before):
+            if not is_img_url(g):
+                gallery.append(g)
+                continue
+            stem = '%s-%d' % (p['key'], i + 1)
+            old_name, old_path = _existing_variants(stem)
+            url = 'https:' + g.lstrip('/') if g.startswith('//') else g
+            try:
+                data, ext = _download(url)
+            except Exception as e:
+                if old_name:
+                    print('  warn  %-18s 抓取失败（%s），沿用已有文件' % (stem, e))
+                    gallery.append(old_name)
+                else:
+                    print('  warn  %-18s 抓取失败（%s），这张先用外链顶着' % (stem, e))
+                    gallery.append(g)
+                continue
+            name = '%s.%s' % (stem, ext)
+            dest = os.path.join(IMG_DIR, name)
+            same = os.path.exists(dest) and open(dest, 'rb').read() == data
+            if not same:
+                open(dest, 'wb').write(data)
+                print('  img   %-18s <- %s (%.0f KB)' % (name, url, len(data) / 1024))
+            if old_path and old_name != name:
+                try:
+                    os.remove(old_path)
+                    print('  img   %-18s 格式变了，删掉旧的 %s' % (stem, old_name))
+                except OSError:
+                    pass
+            gallery.append(name)
+        if gallery != before:
+            p['gallery'] = gallery
+            changed = True
+    return changed
 
 
 def money(v):
@@ -257,6 +368,13 @@ def main():
     keys = [p['key'] for p in products]
     assert len(keys) == len(set(keys)), 'key 有重复'
 
+    # 0) gallery 里的外链 -> 下载进 images/details/，并换成本地文件名
+    if '--no-fetch' not in sys.argv and fetch_remote_images(products):
+        with open(DATA, 'w', encoding='utf-8', newline='\n') as f:
+            json.dump(products, f, ensure_ascii=False, indent=2)
+            f.write('\n')
+        print('  data/products.json: 外链已换成本地文件名')
+
     # 1) 生成产品页
     for p in products:
         out_dir = os.path.join(ROOT, 'product', p['key'])
@@ -264,10 +382,10 @@ def main():
         open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8', newline='\n').write(
             render_page(p, products))
 
-        # 检查图片是否存在（外链跳过，构建时无法校验）
+        # 检查图片是否存在（外链跳过，抓取失败时才会留外链）
         missing = [g for g in p['gallery']
                    if not is_img_url(g)
-                   and not os.path.exists(os.path.join(ROOT, 'images', 'details', g + '.jpg'))]
+                   and not os.path.exists(os.path.join(IMG_DIR, local_file(g)))]
         flag = '' if not missing else '  !! 缺图: ' + ','.join(missing)
         print('  page  %-14s %d imgs%s' % (p['key'], len(p['gallery']), flag))
 

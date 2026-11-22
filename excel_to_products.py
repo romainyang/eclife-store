@@ -115,7 +115,7 @@ def _color(v):
 def _gallery(v):
     """图片列：既可以是本地文件名（bv390-main），也可以是完整链接（https://.../a.jpg）
 
-    本地文件名会去掉路径与扩展名，统一按 images/details/<名字>.jpg 找；
+    本地文件名会去掉目录，保留后缀（不写后缀就按 .jpg 处理）；
     外链原样保留，不去后缀、不改斜杠。
     """
     out = []
@@ -124,13 +124,18 @@ def _gallery(v):
         if not g:
             continue
         if is_img_url(g):
-            out.append(g)          # 外链原样保留
+            out.append(g)          # 外链原样保留，构建时会被下载进仓库
             continue
         g = g.split('/')[-1]       # 本地：只留文件名
-        g = re.sub(r'\.(jpe?g|png|webp|gif|avif)$', '', g, flags=re.I)
-        if g:
-            out.append(g)
+        m = IMG_EXT_RE.search(g)
+        out.append(g[:m.start()] + m.group(0).lower() if m else g)
     return out
+
+
+def local_file(g):
+    """本地图片的实际文件名：没写后缀就按 .jpg"""
+    g = str(g)
+    return g if IMG_EXT_RE.search(g) else g + '.jpg'
 
 
 # ---------------------------------------------------------------- 读表工具
@@ -279,15 +284,16 @@ def convert(xlsx=XLSX, out=DATA, write=True):
 
         # 只有本地文件名才检查文件是否存在；外链没法在构建时验证，跳过
         local_imgs = [g for g in gallery if not is_img_url(g)]
-        missing = [g for g in local_imgs if not os.path.exists(os.path.join(IMG_DIR, g + '.jpg'))]
+        missing = [g for g in local_imgs
+                   if not os.path.exists(os.path.join(IMG_DIR, local_file(g)))]
         if missing:
             warns.append('%s [%s] 缺图片文件：%s'
-                         % (where, key, ', '.join('images/details/%s.jpg' % m for m in missing)))
+                         % (where, key, ', '.join('images/details/%s' % local_file(m) for m in missing)))
         odd = [g for g in gallery
                if is_img_url(g) and not IMG_EXT_RE.search(g.split('?')[0].split('#')[0])]
         if odd:
             warns.append('%s [%s] 这些图片链接结尾不像图片（没有 .jpg/.png/.webp），'
-                         '如果不是直链可能加载不出来：%s' % (where, key, ', '.join(odd)))
+                         '如果抓不下来会退回外链：%s' % (where, key, ', '.join(odd)))
         return item
 
     for r, row in _rows(ws, cols, hrow):
