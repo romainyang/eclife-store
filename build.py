@@ -59,6 +59,27 @@ def slim(items, fields):
     return [{k: p[k] for k in fields if k in p} for p in items]
 
 
+def slim_index(products):
+    """首页用：全字段 + 评价总数 + 星级分布百分比 + 前 3 条评价
+    （不内嵌全部评价，避免首页体积翻倍）"""
+    out = []
+    for p in products:
+        d = {k: p[k] for k in INDEX_FIELDS if k in p}
+        d['reviewCount'] = p.get('reviewCount') or 0
+        d['ratingDist'] = [x[1] for x in (p.get('ratingDist') or [])]
+        d['reviews'] = [{
+            'stars': r.get('rating', p['stars']),
+            'title': r['title'],
+            'body': r['body'],
+            'author': r['author'],
+            'date': r['date'],
+            'verified': True,
+            'helpful': r.get('helpful') or 0,
+        } for r in (p.get('reviews') or [])[:3]]
+        out.append(d)
+    return out
+
+
 def esc(t, quote=True):
     return html.escape(str(t), quote=quote)
 
@@ -228,7 +249,7 @@ def main():
     # 2) 同步首页 products 数组
     idx_path = os.path.join(ROOT, 'index.html')
     src = open(idx_path, encoding='utf-8').read()
-    new_arr = 'const products = ' + json.dumps(slim(products, INDEX_FIELDS), ensure_ascii=False, separators=(',', ':')) + ';'
+    new_arr = 'const products = ' + json.dumps(slim_index(products), ensure_ascii=False, separators=(',', ':')) + ';'
     src2, n = re.subn(r'const products\s*=\s*\[.*?\];', new_arr, src, count=1, flags=re.S)
     assert n == 1, '首页 products 数组没找到'
     # 首页产品计数文案

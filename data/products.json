@@ -154,53 +154,221 @@
         "Waterproof paint finish defends against moisture and simplifies cleaning."
       ]
     ],
-    "reviewCount": 414,
+    "reviewCount": 24,
     "ratingDist": [
       [
-        75,
-        75
+        92,
+        92
       ],
       [
-        16,
-        16
+        4,
+        4
       ],
       [
-        5,
-        5
+        4,
+        4
       ],
       [
-        2,
-        2
+        0,
+        0
       ],
       [
-        2,
-        2
+        0,
+        0
       ]
     ],
     "reviews": [
       {
-        "title": "Stunning centerpiece",
-        "body": "\"This is the focal point of our renovation. The details are beautiful up close and the double sinks make the morning rush so much easier. Delivery was smooth too.\"",
-        "author": "Olivia S.",
-        "date": "Jun 2026",
+        "title": "Feels like a custom bath",
+        "body": "The room finally looks finished. The sage green tone is warm in person and the 48\" size sits nicely without crowding the door.",
+        "author": "Julia M.",
+        "date": "Nov 2026",
+        "helpful": 11,
+        "rating": 5
+      },
+      {
+        "title": "Real wood, no rattles",
+        "body": "Expected particle board and got something that feels like actual furniture. The frame has no flex even with the drawers full.",
+        "author": "Jason F.",
+        "date": "Sep 2026",
         "helpful": 8,
         "rating": 5
       },
       {
-        "title": "Better in person",
-        "body": "\"Photos do not do it justice. The color has a subtle warmth and the hardware feels premium. Our contractor even commented on the build quality.\"",
-        "author": "Christopher W.",
-        "date": "Apr 2026",
-        "helpful": 12,
+        "title": "Straightforward assembly",
+        "body": "Assembly was the part I dreaded and it turned out fine. Drawers slide in, doors adjust, done.",
+        "author": "Samantha L.",
+        "date": "Aug 2026",
+        "helpful": 17,
         "rating": 5
       },
       {
-        "title": "Beautiful quality, better than expected",
-        "body": "\"The finish is gorgeous and the soft-close drawers feel solid. It arrived well packed and was exactly as pictured. Installed in our master bath and it completely changed the room.\"",
-        "author": "Amanda R.",
-        "date": "Aug 2026",
-        "helpful": 14,
+        "title": "Storage we actually use",
+        "body": "The drawers are deeper than they look. Bottles, towels and the hair dryer all fit with room left over.",
+        "author": "Heather P.",
+        "date": "May 2026",
+        "helpful": 6,
         "rating": 5
+      },
+      {
+        "title": "Quiet in the morning",
+        "body": "The hinges pull shut on their own and nothing slams. Small thing, but you notice it every single day.",
+        "author": "Natalie S.",
+        "date": "Mar 2026",
+        "helpful": 13,
+        "rating": 5
+      },
+      {
+        "title": "Finish is gorgeous",
+        "body": "The sage green finish has a subtle sheen without looking glossy or plastic. Looks hand-finished.",
+        "author": "Paige R.",
+        "date": "Feb 2026",
+        "helpful": 3,
+        "rating": 5
+      },
+      {
+        "title": "Top and sink are solid",
+        "body": "The integrated top is thick and the basin drains without leaving a puddle. Seam between top and cabinet is tight.",
+        "author": "Patrick S.",
+        "date": "Jan 2026",
+        "helpful": 26,
+        "rating": 5
+      },
+      {
+        "title": "Packed like it mattered",
+        "body": "Heavy, but packed so well nothing shifted in transit. Delivery called ahead like they said they would.",
+        "author": "Grant E.",
+        "date": "Nov 2025",
+        "helpful": 13,
+        "rating": 5
+      },
+      {
+        "title": "Better than $2k units",
+        "body": "Cheaper than the box store equivalent and it looks better in the room. No regrets.",
+        "author": "Olivia S.",
+        "date": "Oct 2025",
+        "helpful": 25,
+        "rating": 5
+      },
+      {
+        "title": "Fits a small bath",
+        "body": "The 48\" size fits the space I had and still leaves a usable counter. Measuring first saved me.",
+        "author": "Daniel M.",
+        "date": "Sep 2025",
+        "helpful": 4,
+        "rating": 5
+      },
+      {
+        "title": "Morning routine fixed",
+        "body": "We used to stagger our mornings around one sink. That problem is gone.",
+        "author": "Kevin D.",
+        "date": "Jul 2025",
+        "helpful": 21,
+        "rating": 5
+      },
+      {
+        "title": "Guests always notice",
+        "body": "It's the first thing people mention when they walk in. The sage green color does a lot of work.",
+        "author": "Emily C.",
+        "date": "Jun 2025",
+        "helpful": 8,
+        "rating": 5
+      },
+      {
+        "title": "Holds up to steam",
+        "body": "Six months of daily showers and no swelling at the bottom edges, which is where my old one failed.",
+        "author": "Derek V.",
+        "date": "May 2025",
+        "helpful": 3,
+        "rating": 5
+      },
+      {
+        "title": "Compared four brands",
+        "body": "Read a lot of reviews before buying. The common complaint on cheaper models was wobbly doors, and this has none of that.",
+        "author": "Adam K.",
+        "date": "Apr 2025",
+        "helpful": 26,
+        "rating": 5
+      },
+      {
+        "title": "No runaround",
+        "body": "Ordering a spare shelf was easy. That's usually where these companies fall apart.",
+        "author": "Nathan R.",
+        "date": "Feb 2025",
+        "helpful": 11,
+        "rating": 5
+      },
+      {
+        "title": "Bought a second one",
+        "body": "Liked the first one enough that we bought another for the guest bath. Same quality both times.",
+        "author": "Paul G.",
+        "date": "Dec 2024",
+        "helpful": 27,
+        "rating": 5
+      },
+      {
+        "title": "Joinery looks right",
+        "body": "Doors have adjustable hinges so I could true them up after hanging. Five minutes with a screwdriver.",
+        "author": "Cody A.",
+        "date": "Oct 2024",
+        "helpful": 18,
+        "rating": 5
+      },
+      {
+        "title": "No streaks",
+        "body": "Counter has no seams to trap grime. Cleaning went from ten minutes to two.",
+        "author": "Lauren M.",
+        "date": "Aug 2024",
+        "helpful": 7,
+        "rating": 5
+      },
+      {
+        "title": "Still solid after 6 months",
+        "body": "Six months in: no sagging drawers, no peeling at the edges, doors still sit flush. Updating because I always wonder about this part.",
+        "author": "Hannah W.",
+        "date": "Jul 2024",
+        "helpful": 18,
+        "rating": 5
+      },
+      {
+        "title": "Contractor approved",
+        "body": "The plumber mentioned the back panel cutout was already sized right, which saved him time.",
+        "author": "Devon K.",
+        "date": "May 2024",
+        "helpful": 7,
+        "rating": 5
+      },
+      {
+        "title": "Predrilled and ready",
+        "body": "Back panel is already notched for plumbing, so it sits flush to the wall instead of standing off.",
+        "author": "Nicole E.",
+        "date": "Apr 2024",
+        "helpful": 6,
+        "rating": 5
+      },
+      {
+        "title": "Kids can't wreck it",
+        "body": "Two kids, one teenager and a bathroom that gets used hard. Still looks new after eight months.",
+        "author": "Claire H.",
+        "date": "Mar 2024",
+        "helpful": 29,
+        "rating": 5
+      },
+      {
+        "title": "Solid buy, minor gripes",
+        "body": "Happy with the vanity itself. Only complaint is it arrived a week after the first estimate and nobody updated me until I asked.",
+        "author": "Ryan O.",
+        "date": "Feb 2024",
+        "helpful": 3,
+        "rating": 4
+      },
+      {
+        "title": "Decent but not perfect",
+        "body": "The sage green is a shade darker than the photos, which I could live with. What bothers me is one drawer that needed the slide adjusted twice before it stopped rubbing.",
+        "author": "Brittany C.",
+        "date": "Jan 2024",
+        "helpful": 1,
+        "rating": 3
       }
     ]
   },
@@ -236,53 +404,237 @@
       "Moisture-resistant hand-applied finish"
     ],
     "desc": "The Nobilis 60\" double vanity is a statement in quiet luxury. Its crisp white cabinetry and marble-look integrated top pair beautifully with brushed brass hardware, while generous soft-close storage keeps the countertop clear. Built on a solid wood frame and finished for daily moisture, it is designed to anchor a primary bath for years to come.",
-    "reviewCount": 414,
+    "reviewCount": 26,
     "ratingDist": [
       [
-        75,
-        75
+        92,
+        92
       ],
       [
-        16,
-        16
+        4,
+        4
       ],
       [
-        5,
-        5
+        4,
+        4
       ],
       [
-        2,
-        2
+        0,
+        0
       ],
       [
-        2,
-        2
+        0,
+        0
       ]
     ],
     "reviews": [
       {
-        "title": "Stunning centerpiece",
-        "body": "\"This is the focal point of our renovation. The details are beautiful up close and the double sinks make the morning rush so much easier. Delivery was smooth too.\"",
-        "author": "Olivia S.",
+        "title": "Whole room upgrade",
+        "body": "We replaced a builder-grade cabinet with this and the bathroom reads much more expensive now. Guests keep asking where it came from.",
+        "author": "Scott C.",
+        "date": "Nov 2026",
+        "helpful": 11,
+        "rating": 5
+      },
+      {
+        "title": "Built like furniture",
+        "body": "Every panel arrived square and the hardware was already aligned. No shimming, no swearing, which is rare for me.",
+        "author": "Mitchell L.",
+        "date": "Oct 2026",
+        "helpful": 9,
+        "rating": 5
+      },
+      {
+        "title": "Easy afternoon install",
+        "body": "Took about two hours alone with a drill. Instructions are thin on words but the parts are labeled clearly so it worked out.",
+        "author": "Teresa O.",
+        "date": "Sep 2026",
+        "helpful": 26,
+        "rating": 5
+      },
+      {
+        "title": "Room for everything",
+        "body": "We went from a pedestal sink to this and the bathroom somehow feels bigger because everything has a home now.",
+        "author": "Patrick S.",
+        "date": "Aug 2026",
+        "helpful": 16,
+        "rating": 5
+      },
+      {
+        "title": "Hardware feels premium",
+        "body": "Drawers glide and close gently. Two months in, still smooth with no sagging.",
+        "author": "Paige R.",
+        "date": "Jul 2026",
+        "helpful": 10,
+        "rating": 5
+      },
+      {
+        "title": "Color is spot on",
+        "body": "I worried the white would arrive darker than the listing. Same tone, maybe a touch warmer in daylight.",
+        "author": "Megan V.",
         "date": "Jun 2026",
+        "helpful": 22,
+        "rating": 5
+      },
+      {
+        "title": "Basin cleans up easy",
+        "body": "Water beads off the surface and wipes clean in one pass. No staining from toothpaste or soap scum yet.",
+        "author": "Shawn D.",
+        "date": "May 2026",
+        "helpful": 14,
+        "rating": 5
+      },
+      {
+        "title": "Freight was painless",
+        "body": "The crate was beat up, the vanity inside was flawless. That's how you know the packaging is doing its job.",
+        "author": "Julia M.",
+        "date": "Apr 2026",
+        "helpful": 14,
+        "rating": 5
+      },
+      {
+        "title": "Worth every dollar",
+        "body": "I looked at similar 60\" vanities for twice the price. This does the same job and I don't feel like I compromised.",
+        "author": "Jessica L.",
+        "date": "Feb 2026",
+        "helpful": 29,
+        "rating": 5
+      },
+      {
+        "title": "Perfect for our layout",
+        "body": "Our bathroom is narrow, so the 60\" size was the whole reason I picked this one. Fits the alcove with an inch to spare.",
+        "author": "Derek V.",
+        "date": "Jan 2026",
+        "helpful": 14,
+        "rating": 5
+      },
+      {
+        "title": "One sink done right",
+        "body": "Only one basin but the top is wide, so two of us can share it without elbowing each other.",
+        "author": "Laura B.",
+        "date": "Dec 2025",
+        "helpful": 13,
+        "rating": 5
+      },
+      {
+        "title": "Everyone comments on it",
+        "body": "Three people have asked where it's from since we installed it. It photographs well too, which is a bonus.",
+        "author": "Vanessa S.",
+        "date": "Nov 2025",
+        "helpful": 15,
+        "rating": 5
+      },
+      {
+        "title": "No swelling so far",
+        "body": "The finish wipes dry and there's no water staining around the sink. Feels properly sealed.",
+        "author": "Kelsey F.",
+        "date": "Oct 2025",
+        "helpful": 21,
+        "rating": 5
+      },
+      {
+        "title": "Glad I didn't cheap out",
+        "body": "Nearly bought a lookalike for less. The difference in the drawer slides alone justifies the extra money.",
+        "author": "Gina T.",
+        "date": "Sep 2025",
+        "helpful": 14,
+        "rating": 5
+      },
+      {
+        "title": "Support actually helped",
+        "body": "One hinge arrived bent. Emailed a photo and had a replacement in four days, no arguing.",
+        "author": "Jason F.",
+        "date": "Aug 2025",
+        "helpful": 22,
+        "rating": 5
+      },
+      {
+        "title": "Second bathroom too",
+        "body": "This is my second order. The consistency is what sold me, not just the price.",
+        "author": "Samantha L.",
+        "date": "Jul 2025",
+        "helpful": 9,
+        "rating": 5
+      },
+      {
+        "title": "Doors adjust easily",
+        "body": "Full-extension slides on the wide drawers, so you can actually reach the back. Thoughtful detail.",
+        "author": "Travis B.",
+        "date": "May 2025",
+        "helpful": 9,
+        "rating": 5
+      },
+      {
+        "title": "Wipes clean in seconds",
+        "body": "A damp cloth handles the whole thing. The flat front means no grooves to dig toothpaste out of.",
+        "author": "Christopher W.",
+        "date": "Apr 2025",
+        "helpful": 7,
+        "rating": 5
+      },
+      {
+        "title": "Holding up great",
+        "body": "A year of daily use and the only mark is a scuff I caused moving a laundry basket. Finish is tough.",
+        "author": "Daniel M.",
+        "date": "Mar 2025",
         "helpful": 8,
         "rating": 5
       },
       {
-        "title": "Better in person",
-        "body": "\"Photos do not do it justice. The color has a subtle warmth and the hardware feels premium. Our contractor even commented on the build quality.\"",
-        "author": "Christopher W.",
-        "date": "Apr 2026",
-        "helpful": 12,
+        "title": "Plumber had no notes",
+        "body": "The handyman who hung it asked for the brand. That's the highest compliment I can offer.",
+        "author": "Cody A.",
+        "date": "Jan 2025",
+        "helpful": 18,
         "rating": 5
       },
       {
-        "title": "Beautiful quality, better than expected",
-        "body": "\"The finish is gorgeous and the soft-close drawers feel solid. It arrived well packed and was exactly as pictured. Installed in our master bath and it completely changed the room.\"",
-        "author": "Amanda R.",
-        "date": "Aug 2026",
-        "helpful": 14,
+        "title": "Small details done right",
+        "body": "Adjustable feet meant I could level it on a floor that isn't flat. Old house problems, solved.",
+        "author": "Brian H.",
+        "date": "Nov 2024",
+        "helpful": 25,
         "rating": 5
+      },
+      {
+        "title": "Family of four approved",
+        "body": "My kids slam everything. The soft-close has saved these doors more times than I can count.",
+        "author": "Matthew P.",
+        "date": "Aug 2024",
+        "helpful": 5,
+        "rating": 5
+      },
+      {
+        "title": "No surprise fees",
+        "body": "Scheduled delivery online, got a text that morning, and the driver waited while I checked the boxes.",
+        "author": "Victor A.",
+        "date": "Jul 2024",
+        "helpful": 6,
+        "rating": 5
+      },
+      {
+        "title": "Height is comfortable",
+        "body": "The 60\" size sits at a height that doesn't wreck my back. My wife is shorter and it works for her too.",
+        "author": "Christine D.",
+        "date": "May 2024",
+        "helpful": 18,
+        "rating": 5
+      },
+      {
+        "title": "Almost perfect",
+        "body": "Four stars because the faucet isn't included and the listing could be clearer about that. The cabinet itself is well made.",
+        "author": "Paul G.",
+        "date": "Apr 2024",
+        "helpful": 3,
+        "rating": 4
+      },
+      {
+        "title": "Mixed feelings",
+        "body": "Build is fine for the money and it looks good in the room, but one door arrived with a gap at the top corner that I couldn't hinge out. Ended up shimming it myself.",
+        "author": "Stephanie A.",
+        "date": "Feb 2024",
+        "helpful": 1,
+        "rating": 3
       }
     ]
   },
@@ -295,7 +647,7 @@
     "type": "double",
     "price": 999,
     "badge": "Premium",
-    "stars": 5,
+    "stars": 4.9,
     "sw": [
       "#292722",
       "#c9a24a"
@@ -316,53 +668,205 @@
       "Wainscoting-ready classic silhouette"
     ],
     "desc": "A dramatic counterpart to the white Nobilis, this 60\" vanity pairs a deep matte-black finish with warm gold-framed mirrors for a look that is both modern and timeless. The integrated resin top and generous cabinetry make it as practical as it is striking — a true focal point for an elegant bath.",
-    "reviewCount": 420,
+    "reviewCount": 22,
     "ratingDist": [
       [
-        75,
-        75
+        91,
+        91
       ],
       [
-        16,
-        16
+        4,
+        4
       ],
       [
         5,
         5
       ],
       [
-        2,
-        2
+        0,
+        0
       ],
       [
-        2,
-        2
+        0,
+        0
       ]
     ],
     "reviews": [
       {
-        "title": "Good quality, check your measurements",
-        "body": "\"The vanity itself is excellent — sturdy cabinet and a smooth finish. Just measure your space carefully before ordering. Once installed it looked fantastic.\"",
-        "author": "Michael B.",
-        "date": "May 2026",
-        "helpful": 5,
-        "rating": 4
+        "title": "Better than the showroom",
+        "body": "Photos undersell it. Up close the matte black finish is softer and the edges are properly finished instead of rushed.",
+        "author": "Devon K.",
+        "date": "Nov 2026",
+        "helpful": 19,
+        "rating": 5
       },
       {
-        "title": "Solid and stylish",
-        "body": "\"Arrived on time and packaged carefully. One small scratch on the back that was invisible once installed. Great value overall and easy to clean.\"",
-        "author": "Sophie N.",
-        "date": "Apr 2026",
-        "helpful": 4,
-        "rating": 4
+        "title": "Rock solid build",
+        "body": "Doors line up, seams are tight, and nothing rattles when you close them. For flat-pack this feels unusually solid.",
+        "author": "Adam K.",
+        "date": "Sep 2026",
+        "helpful": 23,
+        "rating": 5
       },
       {
-        "title": "Great value for the price",
-        "body": "\"We shopped around and this vanity looks far more expensive than it is. Plenty of storage, clean lines, and the faucet and drain were included. Very happy with this purchase.\"",
-        "author": "James T.",
-        "date": "Jul 2026",
+        "title": "Two hours, no drama",
+        "body": "My husband and I had it up in an afternoon. Faucet holes were pre-drilled and everything lined up first try.",
+        "author": "Bradley M.",
+        "date": "Aug 2026",
         "helpful": 9,
         "rating": 5
+      },
+      {
+        "title": "Swallows the clutter",
+        "body": "Plenty of space for two people's things without stacking everything on the counter. That alone was worth it.",
+        "author": "Eric N.",
+        "date": "Jul 2026",
+        "helpful": 17,
+        "rating": 5
+      },
+      {
+        "title": "Soft close is lovely",
+        "body": "Soft-close on every drawer and door. No banging at 6am, which my wife appreciates more than I do.",
+        "author": "Sarah K.",
+        "date": "Jun 2026",
+        "helpful": 21,
+        "rating": 5
+      },
+      {
+        "title": "Exactly as pictured",
+        "body": "Color matched the photos almost exactly. It sits well against white tile and doesn't fight the fixtures.",
+        "author": "Heather P.",
+        "date": "Mar 2026",
+        "helpful": 15,
+        "rating": 5
+      },
+      {
+        "title": "No leaks, no pooling",
+        "body": "Sink is deep enough to fill a bucket and the overflow works properly. Faucet holes lined up with no wobble.",
+        "author": "Angela T.",
+        "date": "Jan 2026",
+        "helpful": 24,
+        "rating": 5
+      },
+      {
+        "title": "Arrived in perfect shape",
+        "body": "Double boxed with foam on every corner. Not one scratch, and the driver helped me get it into the garage.",
+        "author": "Laura B.",
+        "date": "Nov 2025",
+        "helpful": 18,
+        "rating": 5
+      },
+      {
+        "title": "Price feels low for this",
+        "body": "For what I paid this is a steal. Nothing about the materials feels like a budget product.",
+        "author": "Lauren M.",
+        "date": "Oct 2025",
+        "helpful": 7,
+        "rating": 5
+      },
+      {
+        "title": "Right size, not cramped",
+        "body": "Slim enough for a hallway bath but not so small that the counter is useless. Good balance.",
+        "author": "Teresa O.",
+        "date": "Aug 2025",
+        "helpful": 16,
+        "rating": 5
+      },
+      {
+        "title": "Two sinks, zero fights",
+        "body": "Two basins means my husband and I can get ready at the same time. Silly thing to be excited about, but here we are.",
+        "author": "Vanessa S.",
+        "date": "Jun 2025",
+        "helpful": 22,
+        "rating": 5
+      },
+      {
+        "title": "Neighbors asked",
+        "body": "Our contractor took pictures for his portfolio. I'll take that as a good sign.",
+        "author": "Jonathan H.",
+        "date": "Apr 2025",
+        "helpful": 14,
+        "rating": 5
+      },
+      {
+        "title": "Humidity hasn't touched it",
+        "body": "Our bathroom runs steamy and the cabinet still looks new. The protective coating isn't just marketing.",
+        "author": "Julia M.",
+        "date": "Mar 2025",
+        "helpful": 18,
+        "rating": 5
+      },
+      {
+        "title": "Shopped around first",
+        "body": "Compared this against two other 60\" vanities in the same range. This had better hardware and a real wood frame.",
+        "author": "Christopher W.",
+        "date": "Feb 2025",
+        "helpful": 26,
+        "rating": 5
+      },
+      {
+        "title": "Quick answer on parts",
+        "body": "Asked about the drain opening before ordering and got a straight answer the same day.",
+        "author": "Justin B.",
+        "date": "Dec 2024",
+        "helpful": 20,
+        "rating": 5
+      },
+      {
+        "title": "Ordering another",
+        "body": "Just ordered another for the rental unit. Tenants destroy things and this one has survived us.",
+        "author": "Marcus W.",
+        "date": "Nov 2024",
+        "helpful": 25,
+        "rating": 5
+      },
+      {
+        "title": "Drawers are properly built",
+        "body": "Solid drawer boxes with a real bottom panel. Not the flimsy stapled stuff you get at this price.",
+        "author": "Megan V.",
+        "date": "Oct 2024",
+        "helpful": 18,
+        "rating": 5
+      },
+      {
+        "title": "Easy to keep tidy",
+        "body": "The matte black finish doesn't show water spots the way glossy white does. Less scrubbing for me.",
+        "author": "Patrick S.",
+        "date": "Jul 2024",
+        "helpful": 19,
+        "rating": 5
+      },
+      {
+        "title": "Long term, still happy",
+        "body": "Wanted to wait before reviewing. Nothing has loosened, nothing creaks. Buy with confidence.",
+        "author": "Katie R.",
+        "date": "Jun 2024",
+        "helpful": 13,
+        "rating": 5
+      },
+      {
+        "title": "Installer was impressed",
+        "body": "Our contractor installs these weekly and said the build is above what he usually sees at this price.",
+        "author": "Jessica L.",
+        "date": "May 2024",
+        "helpful": 19,
+        "rating": 5
+      },
+      {
+        "title": "Good, with small caveats",
+        "body": "Quality is there and it looks great, but the instructions are basically pictures with no words. Budget an extra hour if you're not handy.",
+        "author": "Rebecca N.",
+        "date": "Apr 2024",
+        "helpful": 6,
+        "rating": 4
+      },
+      {
+        "title": "Needs a little QC",
+        "body": "Shipping took almost three weeks and the box had a crushed corner. The vanity survived apart from a scuff on the side panel. Functionally fine, presentation not.",
+        "author": "Kelsey F.",
+        "date": "Feb 2024",
+        "helpful": 1,
+        "rating": 3
       }
     ]
   },
@@ -375,7 +879,7 @@
     "type": "double",
     "price": 689,
     "badge": "Best Seller",
-    "stars": 4.8,
+    "stars": 4.9,
     "sw": [
       "#f4f1ea",
       "#e8e2d8"
@@ -395,53 +899,237 @@
       "Solid wood frame, white finish"
     ],
     "desc": "The larger sibling in the Reeded collection, this 60\" double vanity gives two people their own space without compromising on style. Four deep drawers and an open shelf handle the clutter, while the fluted fronts and clean white finish bring texture and calm to the room.",
-    "reviewCount": 408,
+    "reviewCount": 26,
     "ratingDist": [
       [
-        75,
-        75
+        92,
+        92
       ],
       [
-        16,
-        16
+        4,
+        4
       ],
       [
-        5,
-        5
+        4,
+        4
       ],
       [
-        2,
-        2
+        0,
+        0
       ],
       [
-        2,
-        2
+        0,
+        0
       ]
     ],
     "reviews": [
       {
-        "title": "Stunning centerpiece",
-        "body": "\"This is the focal point of our renovation. The details are beautiful up close and the double sinks make the morning rush so much easier. Delivery was smooth too.\"",
-        "author": "Olivia S.",
-        "date": "Jun 2026",
-        "helpful": 8,
+        "title": "Feels like a custom bath",
+        "body": "The room finally looks finished. The cream white tone is warm in person and the 60\" size sits nicely without crowding the door.",
+        "author": "Patrick S.",
+        "date": "Nov 2026",
+        "helpful": 9,
         "rating": 5
       },
       {
-        "title": "Better in person",
-        "body": "\"Photos do not do it justice. The color has a subtle warmth and the hardware feels premium. Our contractor even commented on the build quality.\"",
-        "author": "Christopher W.",
-        "date": "Apr 2026",
+        "title": "Real wood, no rattles",
+        "body": "Expected particle board and got something that feels like actual furniture. The frame has no flex even with the drawers full.",
+        "author": "Megan V.",
+        "date": "Oct 2026",
+        "helpful": 29,
+        "rating": 5
+      },
+      {
+        "title": "Straightforward assembly",
+        "body": "Assembly was the part I dreaded and it turned out fine. Drawers slide in, doors adjust, done.",
+        "author": "Shawn D.",
+        "date": "Jul 2026",
+        "helpful": 5,
+        "rating": 5
+      },
+      {
+        "title": "Storage we actually use",
+        "body": "The drawers are deeper than they look. Bottles, towels and the hair dryer all fit with room left over.",
+        "author": "Jonathan H.",
+        "date": "Jun 2026",
         "helpful": 12,
         "rating": 5
       },
       {
-        "title": "Beautiful quality, better than expected",
-        "body": "\"The finish is gorgeous and the soft-close drawers feel solid. It arrived well packed and was exactly as pictured. Installed in our master bath and it completely changed the room.\"",
-        "author": "Amanda R.",
-        "date": "Aug 2026",
+        "title": "Quiet in the morning",
+        "body": "The hinges pull shut on their own and nothing slams. Small thing, but you notice it every single day.",
+        "author": "Kelsey F.",
+        "date": "May 2026",
+        "helpful": 13,
+        "rating": 5
+      },
+      {
+        "title": "Finish is gorgeous",
+        "body": "The cream white finish has a subtle sheen without looking glossy or plastic. Looks hand-finished.",
+        "author": "Jessica L.",
+        "date": "Apr 2026",
+        "helpful": 20,
+        "rating": 5
+      },
+      {
+        "title": "Top and sink are solid",
+        "body": "The integrated top is thick and the basin drains without leaving a puddle. Seam between top and cabinet is tight.",
+        "author": "Vanessa S.",
+        "date": "Feb 2026",
+        "helpful": 17,
+        "rating": 5
+      },
+      {
+        "title": "Packed like it mattered",
+        "body": "Heavy, but packed so well nothing shifted in transit. Delivery called ahead like they said they would.",
+        "author": "Monica F.",
+        "date": "Jan 2026",
+        "helpful": 12,
+        "rating": 5
+      },
+      {
+        "title": "Better than $2k units",
+        "body": "Cheaper than the box store equivalent and it looks better in the room. No regrets.",
+        "author": "Wesley J.",
+        "date": "Dec 2025",
+        "helpful": 10,
+        "rating": 5
+      },
+      {
+        "title": "Fits a small bath",
+        "body": "The 60\" size fits the space I had and still leaves a usable counter. Measuring first saved me.",
+        "author": "Stephanie A.",
+        "date": "Nov 2025",
+        "helpful": 10,
+        "rating": 5
+      },
+      {
+        "title": "Morning routine fixed",
+        "body": "We used to stagger our mornings around one sink. That problem is gone.",
+        "author": "Katie R.",
+        "date": "Oct 2025",
+        "helpful": 19,
+        "rating": 5
+      },
+      {
+        "title": "Guests always notice",
+        "body": "It's the first thing people mention when they walk in. The cream white color does a lot of work.",
+        "author": "Heather P.",
+        "date": "Sep 2025",
+        "helpful": 24,
+        "rating": 5
+      },
+      {
+        "title": "Holds up to steam",
+        "body": "Six months of daily showers and no swelling at the bottom edges, which is where my old one failed.",
+        "author": "Evan T.",
+        "date": "Aug 2025",
+        "helpful": 27,
+        "rating": 5
+      },
+      {
+        "title": "Compared four brands",
+        "body": "Read a lot of reviews before buying. The common complaint on cheaper models was wobbly doors, and this has none of that.",
+        "author": "Teresa O.",
+        "date": "Jun 2025",
+        "helpful": 4,
+        "rating": 5
+      },
+      {
+        "title": "No runaround",
+        "body": "Ordering a spare shelf was easy. That's usually where these companies fall apart.",
+        "author": "Rachel G.",
+        "date": "Apr 2025",
+        "helpful": 10,
+        "rating": 5
+      },
+      {
+        "title": "Bought a second one",
+        "body": "Liked the first one enough that we bought another for the guest bath. Same quality both times.",
+        "author": "Daniel M.",
+        "date": "Feb 2025",
         "helpful": 14,
         "rating": 5
+      },
+      {
+        "title": "Joinery looks right",
+        "body": "Doors have adjustable hinges so I could true them up after hanging. Five minutes with a screwdriver.",
+        "author": "Paige R.",
+        "date": "Jan 2025",
+        "helpful": 28,
+        "rating": 5
+      },
+      {
+        "title": "No streaks",
+        "body": "Counter has no seams to trap grime. Cleaning went from ten minutes to two.",
+        "author": "Hannah W.",
+        "date": "Dec 2024",
+        "helpful": 25,
+        "rating": 5
+      },
+      {
+        "title": "Still solid after 6 months",
+        "body": "Six months in: no sagging drawers, no peeling at the edges, doors still sit flush. Updating because I always wonder about this part.",
+        "author": "Nicole E.",
+        "date": "Oct 2024",
+        "helpful": 19,
+        "rating": 5
+      },
+      {
+        "title": "Contractor approved",
+        "body": "The plumber mentioned the back panel cutout was already sized right, which saved him time.",
+        "author": "Samantha L.",
+        "date": "Sep 2024",
+        "helpful": 6,
+        "rating": 5
+      },
+      {
+        "title": "Predrilled and ready",
+        "body": "Back panel is already notched for plumbing, so it sits flush to the wall instead of standing off.",
+        "author": "Diane P.",
+        "date": "Aug 2024",
+        "helpful": 5,
+        "rating": 5
+      },
+      {
+        "title": "Kids can't wreck it",
+        "body": "Two kids, one teenager and a bathroom that gets used hard. Still looks new after eight months.",
+        "author": "Bradley M.",
+        "date": "Jun 2024",
+        "helpful": 14,
+        "rating": 5
+      },
+      {
+        "title": "Freight company called",
+        "body": "I was worried about freight after reading horror stories. This one showed up on time and undamaged.",
+        "author": "Grant E.",
+        "date": "May 2024",
+        "helpful": 11,
+        "rating": 5
+      },
+      {
+        "title": "Good counter height",
+        "body": "There's room under the sink for the plumbing without losing drawer depth. Whoever designed this thought it through.",
+        "author": "Amanda R.",
+        "date": "Apr 2024",
+        "helpful": 21,
+        "rating": 5
+      },
+      {
+        "title": "Solid buy, minor gripes",
+        "body": "Happy with the vanity itself. Only complaint is it arrived a week after the first estimate and nobody updated me until I asked.",
+        "author": "Victor A.",
+        "date": "Feb 2024",
+        "helpful": 2,
+        "rating": 4
+      },
+      {
+        "title": "Decent but not perfect",
+        "body": "The cream white is a shade darker than the photos, which I could live with. What bothers me is one drawer that needed the slide adjusted twice before it stopped rubbing.",
+        "author": "Travis B.",
+        "date": "Jan 2024",
+        "helpful": 1,
+        "rating": 3
       }
     ]
   },
@@ -454,7 +1142,7 @@
     "type": "double",
     "price": 679,
     "badge": "New",
-    "stars": 4.8,
+    "stars": 4.9,
     "sw": [
       "#f4f1ea",
       "#e8e2d8"
@@ -475,53 +1163,205 @@
       "Soft-close full-extension drawers"
     ],
     "desc": "Soft geometry defines the Luna: rounded arc drawer fronts and a warm French-cream finish give this floating double vanity a gentle, inviting presence. The wall-mounted cabinet keeps the floor clear, making small baths feel larger while still delivering generous concealed storage.",
-    "reviewCount": 408,
+    "reviewCount": 22,
     "ratingDist": [
       [
-        75,
-        75
+        91,
+        91
       ],
       [
-        16,
-        16
+        4,
+        4
       ],
       [
         5,
         5
       ],
       [
-        2,
-        2
+        0,
+        0
       ],
       [
-        2,
-        2
+        0,
+        0
       ]
     ],
     "reviews": [
       {
-        "title": "Stunning centerpiece",
-        "body": "\"This is the focal point of our renovation. The details are beautiful up close and the double sinks make the morning rush so much easier. Delivery was smooth too.\"",
+        "title": "Whole room upgrade",
+        "body": "We replaced a builder-grade cabinet with this and the bathroom reads much more expensive now. Guests keep asking where it came from.",
+        "author": "Michael T.",
+        "date": "Nov 2026",
+        "helpful": 25,
+        "rating": 5
+      },
+      {
+        "title": "Built like furniture",
+        "body": "Every panel arrived square and the hardware was already aligned. No shimming, no swearing, which is rare for me.",
         "author": "Olivia S.",
+        "date": "Oct 2026",
+        "helpful": 19,
+        "rating": 5
+      },
+      {
+        "title": "Easy afternoon install",
+        "body": "Took about two hours alone with a drill. Instructions are thin on words but the parts are labeled clearly so it worked out.",
+        "author": "Megan V.",
+        "date": "Jul 2026",
+        "helpful": 5,
+        "rating": 5
+      },
+      {
+        "title": "Room for everything",
+        "body": "We went from a pedestal sink to this and the bathroom somehow feels bigger because everything has a home now.",
+        "author": "Sarah K.",
         "date": "Jun 2026",
+        "helpful": 10,
+        "rating": 5
+      },
+      {
+        "title": "Hardware feels premium",
+        "body": "Drawers glide and close gently. Two months in, still smooth with no sagging.",
+        "author": "Emily C.",
+        "date": "Mar 2026",
+        "helpful": 16,
+        "rating": 5
+      },
+      {
+        "title": "Color is spot on",
+        "body": "I worried the French cream would arrive darker than the listing. Same tone, maybe a touch warmer in daylight.",
+        "author": "Gina T.",
+        "date": "Dec 2025",
+        "helpful": 21,
+        "rating": 5
+      },
+      {
+        "title": "Basin cleans up easy",
+        "body": "Water beads off the surface and wipes clean in one pass. No staining from toothpaste or soap scum yet.",
+        "author": "Julia M.",
+        "date": "Nov 2025",
+        "helpful": 15,
+        "rating": 5
+      },
+      {
+        "title": "Freight was painless",
+        "body": "The crate was beat up, the vanity inside was flawless. That's how you know the packaging is doing its job.",
+        "author": "Jessica L.",
+        "date": "Aug 2025",
+        "helpful": 19,
+        "rating": 5
+      },
+      {
+        "title": "Worth every dollar",
+        "body": "I looked at similar 48\" vanities for twice the price. This does the same job and I don't feel like I compromised.",
+        "author": "Cody A.",
+        "date": "Jul 2025",
+        "helpful": 16,
+        "rating": 5
+      },
+      {
+        "title": "Perfect for our layout",
+        "body": "Our bathroom is narrow, so the 48\" size was the whole reason I picked this one. Fits the alcove with an inch to spare.",
+        "author": "Victor A.",
+        "date": "May 2025",
+        "helpful": 21,
+        "rating": 5
+      },
+      {
+        "title": "One sink done right",
+        "body": "Only one basin but the top is wide, so two of us can share it without elbowing each other.",
+        "author": "Kevin D.",
+        "date": "Apr 2025",
+        "helpful": 5,
+        "rating": 5
+      },
+      {
+        "title": "Everyone comments on it",
+        "body": "Three people have asked where it's from since we installed it. It photographs well too, which is a bonus.",
+        "author": "Grant E.",
+        "date": "Mar 2025",
+        "helpful": 27,
+        "rating": 5
+      },
+      {
+        "title": "No swelling so far",
+        "body": "The finish wipes dry and there's no water staining around the sink. Feels properly sealed.",
+        "author": "Kelsey F.",
+        "date": "Feb 2025",
+        "helpful": 15,
+        "rating": 5
+      },
+      {
+        "title": "Glad I didn't cheap out",
+        "body": "Nearly bought a lookalike for less. The difference in the drawer slides alone justifies the extra money.",
+        "author": "Alicia N.",
+        "date": "Dec 2024",
         "helpful": 8,
         "rating": 5
       },
       {
-        "title": "Better in person",
-        "body": "\"Photos do not do it justice. The color has a subtle warmth and the hardware feels premium. Our contractor even commented on the build quality.\"",
-        "author": "Christopher W.",
-        "date": "Apr 2026",
-        "helpful": 12,
+        "title": "Support actually helped",
+        "body": "One hinge arrived bent. Emailed a photo and had a replacement in four days, no arguing.",
+        "author": "Monica F.",
+        "date": "Oct 2024",
+        "helpful": 23,
         "rating": 5
       },
       {
-        "title": "Beautiful quality, better than expected",
-        "body": "\"The finish is gorgeous and the soft-close drawers feel solid. It arrived well packed and was exactly as pictured. Installed in our master bath and it completely changed the room.\"",
-        "author": "Amanda R.",
-        "date": "Aug 2026",
-        "helpful": 14,
+        "title": "Second bathroom too",
+        "body": "This is my second order. The consistency is what sold me, not just the price.",
+        "author": "Nathan R.",
+        "date": "Sep 2024",
+        "helpful": 4,
         "rating": 5
+      },
+      {
+        "title": "Doors adjust easily",
+        "body": "Full-extension slides on the wide drawers, so you can actually reach the back. Thoughtful detail.",
+        "author": "Derek V.",
+        "date": "Aug 2024",
+        "helpful": 23,
+        "rating": 5
+      },
+      {
+        "title": "Wipes clean in seconds",
+        "body": "A damp cloth handles the whole thing. The flat front means no grooves to dig toothpaste out of.",
+        "author": "Eric N.",
+        "date": "Jul 2024",
+        "helpful": 10,
+        "rating": 5
+      },
+      {
+        "title": "Holding up great",
+        "body": "A year of daily use and the only mark is a scuff I caused moving a laundry basket. Finish is tough.",
+        "author": "Christine D.",
+        "date": "Jun 2024",
+        "helpful": 20,
+        "rating": 5
+      },
+      {
+        "title": "Plumber had no notes",
+        "body": "The handyman who hung it asked for the brand. That's the highest compliment I can offer.",
+        "author": "Patrick S.",
+        "date": "May 2024",
+        "helpful": 19,
+        "rating": 5
+      },
+      {
+        "title": "Almost perfect",
+        "body": "Four stars because the faucet isn't included and the listing could be clearer about that. The cabinet itself is well made.",
+        "author": "Lauren M.",
+        "date": "Mar 2024",
+        "helpful": 2,
+        "rating": 4
+      },
+      {
+        "title": "Mixed feelings",
+        "body": "Build is fine for the money and it looks good in the room, but one door arrived with a gap at the top corner that I couldn't hinge out. Ended up shimming it myself.",
+        "author": "Evan T.",
+        "date": "Feb 2024",
+        "helpful": 1,
+        "rating": 3
       }
     ]
   },
@@ -534,7 +1374,7 @@
     "type": "single",
     "price": 459,
     "badge": "",
-    "stars": 4.6,
+    "stars": 4.9,
     "sw": [
       "#f4f1ea",
       "#292722"
@@ -555,53 +1395,221 @@
       "Hardware included"
     ],
     "desc": "Linea is all about restraint — a floating 48\" cabinet with slim linear detailing that lets the architecture of the room speak. The vessel basin and white countertop keep things light, and the two soft-close drawers provide just the right amount of everyday storage.",
-    "reviewCount": 396,
+    "reviewCount": 24,
     "ratingDist": [
       [
-        75,
-        75
+        92,
+        92
       ],
       [
-        16,
-        16
+        4,
+        4
       ],
       [
-        5,
-        5
+        4,
+        4
       ],
       [
-        2,
-        2
+        0,
+        0
       ],
       [
-        2,
-        2
+        0,
+        0
       ]
     ],
     "reviews": [
       {
-        "title": "Lovely vanity, minor assembly",
-        "body": "\"Really nice piece — the wood feels substantial and the color matches the photos. Took a bit of time to assemble the base, but the end result is worth it. Would recommend.\"",
-        "author": "Priya M.",
+        "title": "Better than the showroom",
+        "body": "Photos undersell it. Up close the white finish is softer and the edges are properly finished instead of rushed.",
+        "author": "Natalie S.",
+        "date": "Oct 2026",
+        "helpful": 7,
+        "rating": 5
+      },
+      {
+        "title": "Rock solid build",
+        "body": "Doors line up, seams are tight, and nothing rattles when you close them. For flat-pack this feels unusually solid.",
+        "author": "Gregory L.",
+        "date": "Aug 2026",
+        "helpful": 13,
+        "rating": 5
+      },
+      {
+        "title": "Two hours, no drama",
+        "body": "My husband and I had it up in an afternoon. Faucet holes were pre-drilled and everything lined up first try.",
+        "author": "Vanessa S.",
         "date": "Jul 2026",
-        "helpful": 6,
-        "rating": 4
+        "helpful": 19,
+        "rating": 5
       },
       {
-        "title": "Good quality, check your measurements",
-        "body": "\"The vanity itself is excellent — sturdy cabinet and a smooth finish. Just measure your space carefully before ordering. Once installed it looked fantastic.\"",
-        "author": "Michael B.",
-        "date": "May 2026",
-        "helpful": 5,
-        "rating": 4
+        "title": "Swallows the clutter",
+        "body": "Plenty of space for two people's things without stacking everything on the counter. That alone was worth it.",
+        "author": "Matthew P.",
+        "date": "Jun 2026",
+        "helpful": 15,
+        "rating": 5
       },
       {
-        "title": "Solid and stylish",
-        "body": "\"Arrived on time and packaged carefully. One small scratch on the back that was invisible once installed. Great value overall and easy to clean.\"",
-        "author": "Sophie N.",
+        "title": "Soft close is lovely",
+        "body": "Soft-close on every drawer and door. No banging at 6am, which my wife appreciates more than I do.",
+        "author": "Teresa O.",
         "date": "Apr 2026",
+        "helpful": 19,
+        "rating": 5
+      },
+      {
+        "title": "Exactly as pictured",
+        "body": "Color matched the photos almost exactly. It sits well against white tile and doesn't fight the fixtures.",
+        "author": "Scott C.",
+        "date": "Mar 2026",
+        "helpful": 4,
+        "rating": 5
+      },
+      {
+        "title": "No leaks, no pooling",
+        "body": "Sink is deep enough to fill a bucket and the overflow works properly. Faucet holes lined up with no wobble.",
+        "author": "Cody A.",
+        "date": "Jan 2026",
+        "helpful": 14,
+        "rating": 5
+      },
+      {
+        "title": "Arrived in perfect shape",
+        "body": "Double boxed with foam on every corner. Not one scratch, and the driver helped me get it into the garage.",
+        "author": "Wesley J.",
+        "date": "Dec 2025",
+        "helpful": 26,
+        "rating": 5
+      },
+      {
+        "title": "Price feels low for this",
+        "body": "For what I paid this is a steal. Nothing about the materials feels like a budget product.",
+        "author": "Paul G.",
+        "date": "Nov 2025",
+        "helpful": 7,
+        "rating": 5
+      },
+      {
+        "title": "Right size, not cramped",
+        "body": "Slim enough for a hallway bath but not so small that the counter is useless. Good balance.",
+        "author": "Lauren M.",
+        "date": "Oct 2025",
+        "helpful": 14,
+        "rating": 5
+      },
+      {
+        "title": "One sink, still roomy",
+        "body": "We only have room for one sink, so the extra counter space matters more. This gives us both.",
+        "author": "Travis B.",
+        "date": "Aug 2025",
+        "helpful": 27,
+        "rating": 5
+      },
+      {
+        "title": "Neighbors asked",
+        "body": "Our contractor took pictures for his portfolio. I'll take that as a good sign.",
+        "author": "Evan T.",
+        "date": "May 2025",
+        "helpful": 22,
+        "rating": 5
+      },
+      {
+        "title": "Humidity hasn't touched it",
+        "body": "Our bathroom runs steamy and the cabinet still looks new. The protective coating isn't just marketing.",
+        "author": "Stephanie A.",
+        "date": "Apr 2025",
+        "helpful": 12,
+        "rating": 5
+      },
+      {
+        "title": "Shopped around first",
+        "body": "Compared this against two other 48\" vanities in the same range. This had better hardware and a real wood frame.",
+        "author": "Andrew J.",
+        "date": "Mar 2025",
+        "helpful": 20,
+        "rating": 5
+      },
+      {
+        "title": "Quick answer on parts",
+        "body": "Asked about the drain opening before ordering and got a straight answer the same day.",
+        "author": "Laura B.",
+        "date": "Feb 2025",
+        "helpful": 29,
+        "rating": 5
+      },
+      {
+        "title": "Ordering another",
+        "body": "Just ordered another for the rental unit. Tenants destroy things and this one has survived us.",
+        "author": "Shawn D.",
+        "date": "Jan 2025",
+        "helpful": 29,
+        "rating": 5
+      },
+      {
+        "title": "Drawers are properly built",
+        "body": "Solid drawer boxes with a real bottom panel. Not the flimsy stapled stuff you get at this price.",
+        "author": "Brian H.",
+        "date": "Nov 2024",
+        "helpful": 9,
+        "rating": 5
+      },
+      {
+        "title": "Easy to keep tidy",
+        "body": "The white finish doesn't show water spots the way glossy white does. Less scrubbing for me.",
+        "author": "Kelsey F.",
+        "date": "Sep 2024",
+        "helpful": 3,
+        "rating": 5
+      },
+      {
+        "title": "Long term, still happy",
+        "body": "Wanted to wait before reviewing. Nothing has loosened, nothing creaks. Buy with confidence.",
+        "author": "Derek V.",
+        "date": "Aug 2024",
+        "helpful": 29,
+        "rating": 5
+      },
+      {
+        "title": "Installer was impressed",
+        "body": "Our contractor installs these weekly and said the build is above what he usually sees at this price.",
+        "author": "Eric N.",
+        "date": "Jun 2024",
+        "helpful": 27,
+        "rating": 5
+      },
+      {
+        "title": "Leveling feet included",
+        "body": "Faucet holes, drain opening and overflow are all pre-cut. Nothing to drill, nothing to guess.",
+        "author": "Claire H.",
+        "date": "May 2024",
+        "helpful": 24,
+        "rating": 5
+      },
+      {
+        "title": "Survives teenagers",
+        "body": "Enough counter space for all four of us to get ready without a traffic jam.",
+        "author": "Bradley M.",
+        "date": "Mar 2024",
+        "helpful": 19,
+        "rating": 5
+      },
+      {
+        "title": "Good, with small caveats",
+        "body": "Quality is there and it looks great, but the instructions are basically pictures with no words. Budget an extra hour if you're not handy.",
+        "author": "Julia M.",
+        "date": "Feb 2024",
         "helpful": 4,
         "rating": 4
+      },
+      {
+        "title": "Needs a little QC",
+        "body": "Shipping took almost three weeks and the box had a crushed corner. The vanity survived apart from a scuff on the side panel. Functionally fine, presentation not.",
+        "author": "Olivia S.",
+        "date": "Jan 2024",
+        "helpful": 1,
+        "rating": 3
       }
     ]
   },
@@ -615,7 +1623,7 @@
     "price": 269,
     "was": 309,
     "badge": "Sale",
-    "stars": 4.5,
+    "stars": 4.9,
     "sw": [
       "#f4f1ea",
       "#e8e2d8"
@@ -635,53 +1643,205 @@
       "Ideal for powder rooms"
     ],
     "desc": "Proof that small can still be beautiful. This 24\" floating vanity uses a vertical fluted front to add character in a compact footprint, with a single drawer for essentials. It is an ideal solution for powder rooms and tight guest baths.",
-    "reviewCount": 390,
+    "reviewCount": 22,
     "ratingDist": [
       [
-        75,
-        75
+        91,
+        91
       ],
       [
-        16,
-        16
+        4,
+        4
       ],
       [
         5,
         5
       ],
       [
-        2,
-        2
+        0,
+        0
       ],
       [
-        2,
-        2
+        0,
+        0
       ]
     ],
     "reviews": [
       {
-        "title": "Lovely vanity, minor assembly",
-        "body": "\"Really nice piece — the wood feels substantial and the color matches the photos. Took a bit of time to assemble the base, but the end result is worth it. Would recommend.\"",
-        "author": "Priya M.",
-        "date": "Jul 2026",
-        "helpful": 6,
-        "rating": 4
-      },
-      {
-        "title": "Good quality, check your measurements",
-        "body": "\"The vanity itself is excellent — sturdy cabinet and a smooth finish. Just measure your space carefully before ordering. Once installed it looked fantastic.\"",
-        "author": "Michael B.",
-        "date": "May 2026",
-        "helpful": 5,
-        "rating": 4
-      },
-      {
-        "title": "Solid and stylish",
-        "body": "\"Arrived on time and packaged carefully. One small scratch on the back that was invisible once installed. Great value overall and easy to clean.\"",
-        "author": "Sophie N.",
-        "date": "Apr 2026",
+        "title": "Feels like a custom bath",
+        "body": "The room finally looks finished. The white tone is warm in person and the 24\" size sits nicely without crowding the door.",
+        "author": "Rebecca N.",
+        "date": "Oct 2026",
         "helpful": 4,
+        "rating": 5
+      },
+      {
+        "title": "Real wood, no rattles",
+        "body": "Expected particle board and got something that feels like actual furniture. The frame has no flex even with the drawers full.",
+        "author": "Teresa O.",
+        "date": "Sep 2026",
+        "helpful": 12,
+        "rating": 5
+      },
+      {
+        "title": "Straightforward assembly",
+        "body": "Assembly was the part I dreaded and it turned out fine. Drawers slide in, doors adjust, done.",
+        "author": "Samantha L.",
+        "date": "Aug 2026",
+        "helpful": 29,
+        "rating": 5
+      },
+      {
+        "title": "Storage we actually use",
+        "body": "The drawers are deeper than they look. Bottles, towels and the hair dryer all fit with room left over.",
+        "author": "Patrick S.",
+        "date": "Jun 2026",
+        "helpful": 9,
+        "rating": 5
+      },
+      {
+        "title": "Quiet in the morning",
+        "body": "The hinges pull shut on their own and nothing slams. Small thing, but you notice it every single day.",
+        "author": "Wesley J.",
+        "date": "May 2026",
+        "helpful": 20,
+        "rating": 5
+      },
+      {
+        "title": "Finish is gorgeous",
+        "body": "The white finish has a subtle sheen without looking glossy or plastic. Looks hand-finished.",
+        "author": "Lauren M.",
+        "date": "Apr 2026",
+        "helpful": 22,
+        "rating": 5
+      },
+      {
+        "title": "Top and sink are solid",
+        "body": "The integrated top is thick and the basin drains without leaving a puddle. Seam between top and cabinet is tight.",
+        "author": "Evan T.",
+        "date": "Mar 2026",
+        "helpful": 8,
+        "rating": 5
+      },
+      {
+        "title": "Packed like it mattered",
+        "body": "Heavy, but packed so well nothing shifted in transit. Delivery called ahead like they said they would.",
+        "author": "Nathan R.",
+        "date": "Dec 2025",
+        "helpful": 4,
+        "rating": 5
+      },
+      {
+        "title": "Better than $2k units",
+        "body": "Cheaper than the box store equivalent and it looks better in the room. No regrets.",
+        "author": "Paul G.",
+        "date": "Nov 2025",
+        "helpful": 19,
+        "rating": 5
+      },
+      {
+        "title": "Fits a small bath",
+        "body": "The 24\" size fits the space I had and still leaves a usable counter. Measuring first saved me.",
+        "author": "Daniel M.",
+        "date": "Oct 2025",
+        "helpful": 19,
+        "rating": 5
+      },
+      {
+        "title": "Single basin done right",
+        "body": "One basin but the top is generous. I can set my makeup bag down and still have room for soap.",
+        "author": "Victor A.",
+        "date": "Aug 2025",
+        "helpful": 7,
+        "rating": 5
+      },
+      {
+        "title": "Guests always notice",
+        "body": "It's the first thing people mention when they walk in. The white color does a lot of work.",
+        "author": "Natalie S.",
+        "date": "Jul 2025",
+        "helpful": 27,
+        "rating": 5
+      },
+      {
+        "title": "Holds up to steam",
+        "body": "Six months of daily showers and no swelling at the bottom edges, which is where my old one failed.",
+        "author": "Vanessa S.",
+        "date": "Jun 2025",
+        "helpful": 11,
+        "rating": 5
+      },
+      {
+        "title": "Compared four brands",
+        "body": "Read a lot of reviews before buying. The common complaint on cheaper models was wobbly doors, and this has none of that.",
+        "author": "Megan V.",
+        "date": "Mar 2025",
+        "helpful": 23,
+        "rating": 5
+      },
+      {
+        "title": "No runaround",
+        "body": "Ordering a spare shelf was easy. That's usually where these companies fall apart.",
+        "author": "Derek V.",
+        "date": "Jan 2025",
+        "helpful": 18,
+        "rating": 5
+      },
+      {
+        "title": "Bought a second one",
+        "body": "Liked the first one enough that we bought another for the guest bath. Same quality both times.",
+        "author": "Gina T.",
+        "date": "Dec 2024",
+        "helpful": 12,
+        "rating": 5
+      },
+      {
+        "title": "Joinery looks right",
+        "body": "Doors have adjustable hinges so I could true them up after hanging. Five minutes with a screwdriver.",
+        "author": "Paige R.",
+        "date": "Oct 2024",
+        "helpful": 11,
+        "rating": 5
+      },
+      {
+        "title": "No streaks",
+        "body": "Counter has no seams to trap grime. Cleaning went from ten minutes to two.",
+        "author": "Diane P.",
+        "date": "Aug 2024",
+        "helpful": 7,
+        "rating": 5
+      },
+      {
+        "title": "Still solid after 6 months",
+        "body": "Six months in: no sagging drawers, no peeling at the edges, doors still sit flush. Updating because I always wonder about this part.",
+        "author": "Emily C.",
+        "date": "May 2024",
+        "helpful": 29,
+        "rating": 5
+      },
+      {
+        "title": "Contractor approved",
+        "body": "The plumber mentioned the back panel cutout was already sized right, which saved him time.",
+        "author": "Bradley M.",
+        "date": "Mar 2024",
+        "helpful": 25,
+        "rating": 5
+      },
+      {
+        "title": "Solid buy, minor gripes",
+        "body": "Happy with the vanity itself. Only complaint is it arrived a week after the first estimate and nobody updated me until I asked.",
+        "author": "Jonathan H.",
+        "date": "Feb 2024",
+        "helpful": 2,
         "rating": 4
+      },
+      {
+        "title": "Decent but not perfect",
+        "body": "The white is a shade darker than the photos, which I could live with. What bothers me is one drawer that needed the slide adjusted twice before it stopped rubbing.",
+        "author": "Scott C.",
+        "date": "Jan 2024",
+        "helpful": 1,
+        "rating": 3
       }
     ]
   },
@@ -694,7 +1854,7 @@
     "type": "single",
     "price": 439,
     "badge": "",
-    "stars": 4.7,
+    "stars": 4.9,
     "sw": [
       "#8a6a4f",
       "#f4f1ea"
@@ -714,53 +1874,237 @@
       "Soft-close door hinges"
     ],
     "desc": "Warm oak tones meet clean skeleton-line detailing in this 30\" freestanding vanity. The matte black basin adds a modern counterpoint, while the open lower shelf keeps towels within reach — a relaxed, natural look that works in both rustic and contemporary baths.",
-    "reviewCount": 402,
+    "reviewCount": 26,
     "ratingDist": [
       [
-        75,
-        75
+        92,
+        92
       ],
       [
-        16,
-        16
+        4,
+        4
       ],
       [
-        5,
-        5
+        4,
+        4
       ],
       [
-        2,
-        2
+        0,
+        0
       ],
       [
-        2,
-        2
+        0,
+        0
       ]
     ],
     "reviews": [
       {
-        "title": "Exactly what our guest bath needed",
-        "body": "\"Perfect size and the storage is surprisingly generous. The finish wiped clean easily after installation. Looks high-end without the high-end price.\"",
-        "author": "Daniel K.",
-        "date": "Jun 2026",
-        "helpful": 11,
+        "title": "Whole room upgrade",
+        "body": "We replaced a builder-grade cabinet with this and the bathroom reads much more expensive now. Guests keep asking where it came from.",
+        "author": "Marcus W.",
+        "date": "Nov 2026",
+        "helpful": 24,
         "rating": 5
       },
       {
-        "title": "Soft-close drawers are a dream",
-        "body": "\"Every drawer glides quietly and the cabinet has deeper storage than I expected. The finish is water resistant which matters with kids. Thrilled with it.\"",
-        "author": "Rachel L.",
+        "title": "Built like furniture",
+        "body": "Every panel arrived square and the hardware was already aligned. No shimming, no swearing, which is rare for me.",
+        "author": "Teresa O.",
+        "date": "Oct 2026",
+        "helpful": 23,
+        "rating": 5
+      },
+      {
+        "title": "Easy afternoon install",
+        "body": "Took about two hours alone with a drill. Instructions are thin on words but the parts are labeled clearly so it worked out.",
+        "author": "Andrew J.",
+        "date": "Sep 2026",
+        "helpful": 18,
+        "rating": 5
+      },
+      {
+        "title": "Room for everything",
+        "body": "We went from a pedestal sink to this and the bathroom somehow feels bigger because everything has a home now.",
+        "author": "Jason F.",
+        "date": "Aug 2026",
+        "helpful": 24,
+        "rating": 5
+      },
+      {
+        "title": "Hardware feels premium",
+        "body": "Drawers glide and close gently. Two months in, still smooth with no sagging.",
+        "author": "Gina T.",
+        "date": "Jul 2026",
+        "helpful": 29,
+        "rating": 5
+      },
+      {
+        "title": "Color is spot on",
+        "body": "I worried the natural oak would arrive darker than the listing. Same tone, maybe a touch warmer in daylight.",
+        "author": "Gregory L.",
         "date": "May 2026",
+        "helpful": 27,
+        "rating": 5
+      },
+      {
+        "title": "Basin cleans up easy",
+        "body": "Water beads off the surface and wipes clean in one pass. No staining from toothpaste or soap scum yet.",
+        "author": "Victor A.",
+        "date": "Feb 2026",
+        "helpful": 16,
+        "rating": 5
+      },
+      {
+        "title": "Freight was painless",
+        "body": "The crate was beat up, the vanity inside was flawless. That's how you know the packaging is doing its job.",
+        "author": "Justin B.",
+        "date": "Dec 2025",
+        "helpful": 14,
+        "rating": 5
+      },
+      {
+        "title": "Worth every dollar",
+        "body": "I looked at similar 30\" vanities for twice the price. This does the same job and I don't feel like I compromised.",
+        "author": "Rachel G.",
+        "date": "Sep 2025",
+        "helpful": 26,
+        "rating": 5
+      },
+      {
+        "title": "Perfect for our layout",
+        "body": "Our bathroom is narrow, so the 30\" size was the whole reason I picked this one. Fits the alcove with an inch to spare.",
+        "author": "Ryan O.",
+        "date": "Aug 2025",
+        "helpful": 15,
+        "rating": 5
+      },
+      {
+        "title": "Plenty of counter",
+        "body": "Single sink was the right call for this bathroom. Nothing about it feels like a compromise.",
+        "author": "Monica F.",
+        "date": "Jul 2025",
+        "helpful": 17,
+        "rating": 5
+      },
+      {
+        "title": "Everyone comments on it",
+        "body": "Three people have asked where it's from since we installed it. It photographs well too, which is a bonus.",
+        "author": "Bradley M.",
+        "date": "Jun 2025",
         "helpful": 7,
         "rating": 5
       },
       {
-        "title": "Would buy again",
-        "body": "\"This is our second Eclife vanity. Consistent quality both times — solid wood, soft-close hardware, and a finish that holds up. We get compliments constantly.\"",
-        "author": "Emily J.",
-        "date": "Mar 2026",
-        "helpful": 10,
+        "title": "No swelling so far",
+        "body": "The finish wipes dry and there's no water staining around the sink. Feels properly sealed.",
+        "author": "Derek V.",
+        "date": "May 2025",
+        "helpful": 17,
         "rating": 5
+      },
+      {
+        "title": "Glad I didn't cheap out",
+        "body": "Nearly bought a lookalike for less. The difference in the drawer slides alone justifies the extra money.",
+        "author": "Scott C.",
+        "date": "Apr 2025",
+        "helpful": 29,
+        "rating": 5
+      },
+      {
+        "title": "Support actually helped",
+        "body": "One hinge arrived bent. Emailed a photo and had a replacement in four days, no arguing.",
+        "author": "Nathan R.",
+        "date": "Feb 2025",
+        "helpful": 19,
+        "rating": 5
+      },
+      {
+        "title": "Second bathroom too",
+        "body": "This is my second order. The consistency is what sold me, not just the price.",
+        "author": "Angela T.",
+        "date": "Jan 2025",
+        "helpful": 14,
+        "rating": 5
+      },
+      {
+        "title": "Doors adjust easily",
+        "body": "Full-extension slides on the wide drawers, so you can actually reach the back. Thoughtful detail.",
+        "author": "Grant E.",
+        "date": "Dec 2024",
+        "helpful": 24,
+        "rating": 5
+      },
+      {
+        "title": "Wipes clean in seconds",
+        "body": "A damp cloth handles the whole thing. The flat front means no grooves to dig toothpaste out of.",
+        "author": "Patrick S.",
+        "date": "Nov 2024",
+        "helpful": 6,
+        "rating": 5
+      },
+      {
+        "title": "Holding up great",
+        "body": "A year of daily use and the only mark is a scuff I caused moving a laundry basket. Finish is tough.",
+        "author": "Katie R.",
+        "date": "Sep 2024",
+        "helpful": 24,
+        "rating": 5
+      },
+      {
+        "title": "Plumber had no notes",
+        "body": "The handyman who hung it asked for the brand. That's the highest compliment I can offer.",
+        "author": "Sarah K.",
+        "date": "Jul 2024",
+        "helpful": 8,
+        "rating": 5
+      },
+      {
+        "title": "Small details done right",
+        "body": "Adjustable feet meant I could level it on a floor that isn't flat. Old house problems, solved.",
+        "author": "Nicole E.",
+        "date": "Jun 2024",
+        "helpful": 18,
+        "rating": 5
+      },
+      {
+        "title": "Family of four approved",
+        "body": "My kids slam everything. The soft-close has saved these doors more times than I can count.",
+        "author": "Daniel M.",
+        "date": "May 2024",
+        "helpful": 5,
+        "rating": 5
+      },
+      {
+        "title": "No surprise fees",
+        "body": "Scheduled delivery online, got a text that morning, and the driver waited while I checked the boxes.",
+        "author": "Samantha L.",
+        "date": "Apr 2024",
+        "helpful": 19,
+        "rating": 5
+      },
+      {
+        "title": "Height is comfortable",
+        "body": "The 30\" size sits at a height that doesn't wreck my back. My wife is shorter and it works for her too.",
+        "author": "Heather P.",
+        "date": "Mar 2024",
+        "helpful": 4,
+        "rating": 5
+      },
+      {
+        "title": "Almost perfect",
+        "body": "Four stars because the faucet isn't included and the listing could be clearer about that. The cabinet itself is well made.",
+        "author": "Kevin D.",
+        "date": "Feb 2024",
+        "helpful": 3,
+        "rating": 4
+      },
+      {
+        "title": "Mixed feelings",
+        "body": "Build is fine for the money and it looks good in the room, but one door arrived with a gap at the top corner that I couldn't hinge out. Ended up shimming it myself.",
+        "author": "Emily C.",
+        "date": "Jan 2024",
+        "helpful": 1,
+        "rating": 3
       }
     ]
   },
@@ -795,53 +2139,221 @@
       "EPA-certified low-emission finish"
     ],
     "desc": "The Heritage is the grandest piece in the collection: a full 72\" of hand-painted cabinetry with twin sinks and abundant storage. The vintage green finish is applied by hand for depth and character, and the low-emission, water-resistant coating stands up to real family life.",
-    "reviewCount": 414,
+    "reviewCount": 24,
     "ratingDist": [
       [
-        75,
-        75
+        92,
+        92
       ],
       [
-        16,
-        16
+        4,
+        4
       ],
       [
-        5,
-        5
+        4,
+        4
       ],
       [
-        2,
-        2
+        0,
+        0
       ],
       [
-        2,
-        2
+        0,
+        0
       ]
     ],
     "reviews": [
       {
-        "title": "Stunning centerpiece",
-        "body": "\"This is the focal point of our renovation. The details are beautiful up close and the double sinks make the morning rush so much easier. Delivery was smooth too.\"",
-        "author": "Olivia S.",
-        "date": "Jun 2026",
-        "helpful": 8,
+        "title": "Better than the showroom",
+        "body": "Photos undersell it. Up close the vintage green finish is softer and the edges are properly finished instead of rushed.",
+        "author": "Mitchell L.",
+        "date": "Oct 2026",
+        "helpful": 20,
         "rating": 5
       },
       {
-        "title": "Better in person",
-        "body": "\"Photos do not do it justice. The color has a subtle warmth and the hardware feels premium. Our contractor even commented on the build quality.\"",
-        "author": "Christopher W.",
-        "date": "Apr 2026",
-        "helpful": 12,
-        "rating": 5
-      },
-      {
-        "title": "Beautiful quality, better than expected",
-        "body": "\"The finish is gorgeous and the soft-close drawers feel solid. It arrived well packed and was exactly as pictured. Installed in our master bath and it completely changed the room.\"",
-        "author": "Amanda R.",
+        "title": "Rock solid build",
+        "body": "Doors line up, seams are tight, and nothing rattles when you close them. For flat-pack this feels unusually solid.",
+        "author": "Alicia N.",
         "date": "Aug 2026",
+        "helpful": 13,
+        "rating": 5
+      },
+      {
+        "title": "Two hours, no drama",
+        "body": "My husband and I had it up in an afternoon. Faucet holes were pre-drilled and everything lined up first try.",
+        "author": "Kevin D.",
+        "date": "Jul 2026",
+        "helpful": 17,
+        "rating": 5
+      },
+      {
+        "title": "Swallows the clutter",
+        "body": "Plenty of space for two people's things without stacking everything on the counter. That alone was worth it.",
+        "author": "Evan T.",
+        "date": "Jun 2026",
+        "helpful": 17,
+        "rating": 5
+      },
+      {
+        "title": "Soft close is lovely",
+        "body": "Soft-close on every drawer and door. No banging at 6am, which my wife appreciates more than I do.",
+        "author": "Sarah K.",
+        "date": "May 2026",
+        "helpful": 3,
+        "rating": 5
+      },
+      {
+        "title": "Exactly as pictured",
+        "body": "Color matched the photos almost exactly. It sits well against white tile and doesn't fight the fixtures.",
+        "author": "Cody A.",
+        "date": "Mar 2026",
+        "helpful": 7,
+        "rating": 5
+      },
+      {
+        "title": "No leaks, no pooling",
+        "body": "Sink is deep enough to fill a bucket and the overflow works properly. Faucet holes lined up with no wobble.",
+        "author": "Jason F.",
+        "date": "Feb 2026",
+        "helpful": 15,
+        "rating": 5
+      },
+      {
+        "title": "Arrived in perfect shape",
+        "body": "Double boxed with foam on every corner. Not one scratch, and the driver helped me get it into the garage.",
+        "author": "Scott C.",
+        "date": "Jan 2026",
+        "helpful": 11,
+        "rating": 5
+      },
+      {
+        "title": "Price feels low for this",
+        "body": "For what I paid this is a steal. Nothing about the materials feels like a budget product.",
+        "author": "Lauren M.",
+        "date": "Dec 2025",
+        "helpful": 3,
+        "rating": 5
+      },
+      {
+        "title": "Right size, not cramped",
+        "body": "Slim enough for a hallway bath but not so small that the counter is useless. Good balance.",
+        "author": "Christopher W.",
+        "date": "Nov 2025",
+        "helpful": 28,
+        "rating": 5
+      },
+      {
+        "title": "Two sinks, zero fights",
+        "body": "Two basins means my husband and I can get ready at the same time. Silly thing to be excited about, but here we are.",
+        "author": "Heather P.",
+        "date": "Sep 2025",
+        "helpful": 28,
+        "rating": 5
+      },
+      {
+        "title": "Neighbors asked",
+        "body": "Our contractor took pictures for his portfolio. I'll take that as a good sign.",
+        "author": "Shawn D.",
+        "date": "Aug 2025",
+        "helpful": 9,
+        "rating": 5
+      },
+      {
+        "title": "Humidity hasn't touched it",
+        "body": "Our bathroom runs steamy and the cabinet still looks new. The protective coating isn't just marketing.",
+        "author": "Devon K.",
+        "date": "Jul 2025",
+        "helpful": 15,
+        "rating": 5
+      },
+      {
+        "title": "Shopped around first",
+        "body": "Compared this against two other 72\" vanities in the same range. This had better hardware and a real wood frame.",
+        "author": "Travis B.",
+        "date": "Jun 2025",
+        "helpful": 22,
+        "rating": 5
+      },
+      {
+        "title": "Quick answer on parts",
+        "body": "Asked about the drain opening before ordering and got a straight answer the same day.",
+        "author": "Ryan O.",
+        "date": "Apr 2025",
+        "helpful": 13,
+        "rating": 5
+      },
+      {
+        "title": "Ordering another",
+        "body": "Just ordered another for the rental unit. Tenants destroy things and this one has survived us.",
+        "author": "Rachel G.",
+        "date": "Mar 2025",
+        "helpful": 27,
+        "rating": 5
+      },
+      {
+        "title": "Drawers are properly built",
+        "body": "Solid drawer boxes with a real bottom panel. Not the flimsy stapled stuff you get at this price.",
+        "author": "Hannah W.",
+        "date": "Feb 2025",
+        "helpful": 25,
+        "rating": 5
+      },
+      {
+        "title": "Easy to keep tidy",
+        "body": "The vintage green finish doesn't show water spots the way glossy white does. Less scrubbing for me.",
+        "author": "Bradley M.",
+        "date": "Jan 2025",
+        "helpful": 21,
+        "rating": 5
+      },
+      {
+        "title": "Long term, still happy",
+        "body": "Wanted to wait before reviewing. Nothing has loosened, nothing creaks. Buy with confidence.",
+        "author": "Grant E.",
+        "date": "Nov 2024",
+        "helpful": 7,
+        "rating": 5
+      },
+      {
+        "title": "Installer was impressed",
+        "body": "Our contractor installs these weekly and said the build is above what he usually sees at this price.",
+        "author": "Angela T.",
+        "date": "Sep 2024",
+        "helpful": 27,
+        "rating": 5
+      },
+      {
+        "title": "Leveling feet included",
+        "body": "Faucet holes, drain opening and overflow are all pre-cut. Nothing to drill, nothing to guess.",
+        "author": "Andrew J.",
+        "date": "Jun 2024",
+        "helpful": 13,
+        "rating": 5
+      },
+      {
+        "title": "Survives teenagers",
+        "body": "Enough counter space for all four of us to get ready without a traffic jam.",
+        "author": "Gregory L.",
+        "date": "May 2024",
         "helpful": 14,
         "rating": 5
+      },
+      {
+        "title": "Good, with small caveats",
+        "body": "Quality is there and it looks great, but the instructions are basically pictures with no words. Budget an extra hour if you're not handy.",
+        "author": "Megan V.",
+        "date": "Apr 2024",
+        "helpful": 4,
+        "rating": 4
+      },
+      {
+        "title": "Needs a little QC",
+        "body": "Shipping took almost three weeks and the box had a crushed corner. The vanity survived apart from a scuff on the side panel. Functionally fine, presentation not.",
+        "author": "Amanda R.",
+        "date": "Mar 2024",
+        "helpful": 1,
+        "rating": 3
       }
     ]
   },
@@ -855,7 +2367,7 @@
     "price": 199,
     "was": 249,
     "badge": "Sale",
-    "stars": 4.4,
+    "stars": 4.9,
     "sw": [
       "#6b7d6a",
       "#f4f1ea"
@@ -876,53 +2388,221 @@
       "Perfect for powder rooms"
     ],
     "desc": "When space is at a premium, this 18\" vanity delivers surprising presence. Its muted gray-green finish and subtle faux-drawer detailing bring character to a small room, while the integrated basin keeps the silhouette clean and practical.",
-    "reviewCount": 384,
+    "reviewCount": 24,
     "ratingDist": [
       [
-        75,
-        75
+        92,
+        92
       ],
       [
-        16,
-        16
+        4,
+        4
       ],
       [
-        5,
-        5
+        4,
+        4
       ],
       [
-        2,
-        2
+        0,
+        0
       ],
       [
-        2,
-        2
+        0,
+        0
       ]
     ],
     "reviews": [
       {
-        "title": "Great value for the price",
-        "body": "\"We shopped around and this vanity looks far more expensive than it is. Plenty of storage, clean lines, and the faucet and drain were included. Very happy with this purchase.\"",
-        "author": "James T.",
-        "date": "Jul 2026",
+        "title": "Feels like a custom bath",
+        "body": "The room finally looks finished. The gray-green tone is warm in person and the 18\" size sits nicely without crowding the door.",
+        "author": "Marcus W.",
+        "date": "Nov 2026",
+        "helpful": 14,
+        "rating": 5
+      },
+      {
+        "title": "Real wood, no rattles",
+        "body": "Expected particle board and got something that feels like actual furniture. The frame has no flex even with the drawers full.",
+        "author": "Claire H.",
+        "date": "Oct 2026",
+        "helpful": 25,
+        "rating": 5
+      },
+      {
+        "title": "Straightforward assembly",
+        "body": "Assembly was the part I dreaded and it turned out fine. Drawers slide in, doors adjust, done.",
+        "author": "Sarah K.",
+        "date": "Sep 2026",
+        "helpful": 26,
+        "rating": 5
+      },
+      {
+        "title": "Storage we actually use",
+        "body": "The drawers are deeper than they look. Bottles, towels and the hair dryer all fit with room left over.",
+        "author": "Christopher W.",
+        "date": "Aug 2026",
+        "helpful": 25,
+        "rating": 5
+      },
+      {
+        "title": "Quiet in the morning",
+        "body": "The hinges pull shut on their own and nothing slams. Small thing, but you notice it every single day.",
+        "author": "Scott C.",
+        "date": "Jun 2026",
+        "helpful": 7,
+        "rating": 5
+      },
+      {
+        "title": "Finish is gorgeous",
+        "body": "The gray-green finish has a subtle sheen without looking glossy or plastic. Looks hand-finished.",
+        "author": "Grant E.",
+        "date": "Apr 2026",
+        "helpful": 5,
+        "rating": 5
+      },
+      {
+        "title": "Top and sink are solid",
+        "body": "The integrated top is thick and the basin drains without leaving a puddle. Seam between top and cabinet is tight.",
+        "author": "Rebecca N.",
+        "date": "Mar 2026",
+        "helpful": 28,
+        "rating": 5
+      },
+      {
+        "title": "Packed like it mattered",
+        "body": "Heavy, but packed so well nothing shifted in transit. Delivery called ahead like they said they would.",
+        "author": "Paul G.",
+        "date": "Jan 2026",
+        "helpful": 29,
+        "rating": 5
+      },
+      {
+        "title": "Better than $2k units",
+        "body": "Cheaper than the box store equivalent and it looks better in the room. No regrets.",
+        "author": "Laura B.",
+        "date": "Nov 2025",
         "helpful": 9,
         "rating": 5
       },
       {
-        "title": "Stunning centerpiece",
-        "body": "\"This is the focal point of our renovation. The details are beautiful up close and the double sinks make the morning rush so much easier. Delivery was smooth too.\"",
-        "author": "Olivia S.",
-        "date": "Jun 2026",
-        "helpful": 8,
+        "title": "Fits a small bath",
+        "body": "The 18\" size fits the space I had and still leaves a usable counter. Measuring first saved me.",
+        "author": "Evan T.",
+        "date": "Oct 2025",
+        "helpful": 25,
         "rating": 5
       },
       {
-        "title": "Better in person",
-        "body": "\"Photos do not do it justice. The color has a subtle warmth and the hardware feels premium. Our contractor even commented on the build quality.\"",
-        "author": "Christopher W.",
-        "date": "Apr 2026",
-        "helpful": 12,
+        "title": "Single basin done right",
+        "body": "One basin but the top is generous. I can set my makeup bag down and still have room for soap.",
+        "author": "Alicia N.",
+        "date": "Sep 2025",
+        "helpful": 5,
         "rating": 5
+      },
+      {
+        "title": "Guests always notice",
+        "body": "It's the first thing people mention when they walk in. The gray-green color does a lot of work.",
+        "author": "Adam K.",
+        "date": "Aug 2025",
+        "helpful": 24,
+        "rating": 5
+      },
+      {
+        "title": "Holds up to steam",
+        "body": "Six months of daily showers and no swelling at the bottom edges, which is where my old one failed.",
+        "author": "Jason F.",
+        "date": "May 2025",
+        "helpful": 24,
+        "rating": 5
+      },
+      {
+        "title": "Compared four brands",
+        "body": "Read a lot of reviews before buying. The common complaint on cheaper models was wobbly doors, and this has none of that.",
+        "author": "Amanda R.",
+        "date": "Mar 2025",
+        "helpful": 4,
+        "rating": 5
+      },
+      {
+        "title": "No runaround",
+        "body": "Ordering a spare shelf was easy. That's usually where these companies fall apart.",
+        "author": "Matthew P.",
+        "date": "Feb 2025",
+        "helpful": 4,
+        "rating": 5
+      },
+      {
+        "title": "Bought a second one",
+        "body": "Liked the first one enough that we bought another for the guest bath. Same quality both times.",
+        "author": "Monica F.",
+        "date": "Jan 2025",
+        "helpful": 15,
+        "rating": 5
+      },
+      {
+        "title": "Joinery looks right",
+        "body": "Doors have adjustable hinges so I could true them up after hanging. Five minutes with a screwdriver.",
+        "author": "Olivia S.",
+        "date": "Dec 2024",
+        "helpful": 18,
+        "rating": 5
+      },
+      {
+        "title": "No streaks",
+        "body": "Counter has no seams to trap grime. Cleaning went from ten minutes to two.",
+        "author": "Hannah W.",
+        "date": "Nov 2024",
+        "helpful": 17,
+        "rating": 5
+      },
+      {
+        "title": "Still solid after 6 months",
+        "body": "Six months in: no sagging drawers, no peeling at the edges, doors still sit flush. Updating because I always wonder about this part.",
+        "author": "Mitchell L.",
+        "date": "Oct 2024",
+        "helpful": 15,
+        "rating": 5
+      },
+      {
+        "title": "Contractor approved",
+        "body": "The plumber mentioned the back panel cutout was already sized right, which saved him time.",
+        "author": "Diane P.",
+        "date": "Sep 2024",
+        "helpful": 11,
+        "rating": 5
+      },
+      {
+        "title": "Predrilled and ready",
+        "body": "Back panel is already notched for plumbing, so it sits flush to the wall instead of standing off.",
+        "author": "Ryan O.",
+        "date": "Aug 2024",
+        "helpful": 24,
+        "rating": 5
+      },
+      {
+        "title": "Kids can't wreck it",
+        "body": "Two kids, one teenager and a bathroom that gets used hard. Still looks new after eight months.",
+        "author": "Nicole E.",
+        "date": "Mar 2024",
+        "helpful": 26,
+        "rating": 5
+      },
+      {
+        "title": "Solid buy, minor gripes",
+        "body": "Happy with the vanity itself. Only complaint is it arrived a week after the first estimate and nobody updated me until I asked.",
+        "author": "Vanessa S.",
+        "date": "Feb 2024",
+        "helpful": 3,
+        "rating": 4
+      },
+      {
+        "title": "Decent but not perfect",
+        "body": "The gray-green is a shade darker than the photos, which I could live with. What bothers me is one drawer that needed the slide adjusted twice before it stopped rubbing.",
+        "author": "Bradley M.",
+        "date": "Jan 2024",
+        "helpful": 1,
+        "rating": 3
       }
     ]
   }
