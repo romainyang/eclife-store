@@ -12,6 +12,7 @@
 eclife-store/
 ├─ index.html              首页（产品列表、品牌故事、购物车入口）
 ├─ products.xlsx           ★ 产品表（推荐改这个，上传即可自动上线）
+├─ new-product-template.xlsx  新品填写模板（1 行完整示例，复制到 products.xlsx 用）
 ├─ data/products.json      ★ 数据源：所有产品信息（Excel 会自动转换成它）
 ├─ excel_to_products.py    Excel → JSON 转换器（build.py 自动调用）
 ├─ make_products_xlsx.py   从现有 JSON 反向导出 Excel（一般不用跑）
@@ -114,6 +115,10 @@ python build.py
 ## 新增一款产品
 
 ### 方式 A：Excel 表（最快，手机上也能做完）
+
+> 懒人版：先下载仓库根目录的 `new-product-template.xlsx`（带 1 行完整示例 + 下拉 + 填写说明），
+> 照着把 `products` / `specs` / `reviews` 三张表的示例行改成你的产品，再整行复制到 `products.xlsx` 对应表的末尾即可。
+> 模板本身不要上传，它只是格式样本。
 
 1. **先传图**
    https://github.com/romainyang/eclife-store/upload/main/images/details → 拖入图片 → Commit。
