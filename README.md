@@ -123,6 +123,10 @@ Cloudflare DNS 里把域名指向 GitHub（**记录必须设为 DNS only 灰云*
 | CNAME | `www` | `你的用户名.github.io` |
 
 > 从 Cloudflare Pages 迁过来时，先在新仓库 Settings → Pages 里填好 Custom domain `yange.asia`，再去 Cloudflare 改 DNS，避免中途域名无解析。
+>
+> **务必同时删掉 `AAAA` 记录**（如果有）。Cloudflare 开代理时会自动生成指向 `2606:4700::/32` 的 IPv6 记录；只删 A 记录不删 AAAA，支持 IPv6 的网络会继续连到 Cloudflare，表现就是 `There isn't a GitHub Pages site here` 的 404。用 `nslookup yange.asia` 检查是否还有 `2606:4700:` 开头的地址。
+>
+> `www` 不用单独做跳转：GitHub Pages 绑定自定义域后会自动把 `www` 301 到主域。
 
 ---
 
