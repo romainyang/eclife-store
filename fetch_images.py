@@ -28,7 +28,8 @@ DATA = os.path.join(ROOT, 'data', 'products.json')
 IMG_DIR = os.path.join(ROOT, 'images', 'details')
 UA = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
       '(KHTML, like Gecko) Chrome/122.0 Safari/537.36')
-ACCEPT = 'image/jpeg,image/png,image/webp,image/*;q=0.8,*/*;q=0.5'
+# 只要 JPEG/PNG：社交分享预览（og:image）和部分老浏览器不认 AVIF/WEBP
+ACCEPT = 'image/jpeg,image/png;q=0.9,*/*;q=0.1'
 
 
 def download(url, timeout=30):
@@ -44,10 +45,31 @@ def download(url, timeout=30):
     return data, ext
 
 
+def to_jpeg_if_needed(data, ext):
+    """CDN 仍可能回 webp/avif；统一转成 JPEG，保证 og:image 在各平台都能显示"""
+    if ext in ('jpg', 'png'):
+        return data, ext
+    if not B.HAVE_PIL:
+        return data, ext
+    try:
+        import io
+        im = B.Image.open(io.BytesIO(data))
+        im.load()
+        if getattr(im, 'n_frames', 1) > 1:
+            return data, ext
+        im = im.convert('RGB')
+        buf = io.BytesIO()
+        im.save(buf, 'JPEG', quality=88, optimize=True, progressive=True)
+        return buf.getvalue(), 'jpg'
+    except Exception:
+        return data, ext
+
+
 def one(stem, url):
     for attempt in (1, 2):
         try:
             data, ext = download(url)
+            data, ext = to_jpeg_if_needed(data, ext)
             data, ext = B.shrink_image(data, ext, stem)
             name = '%s.%s' % (stem, ext)
             with open(os.path.join(IMG_DIR, name), 'wb') as f:

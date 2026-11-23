@@ -432,12 +432,19 @@ def render_page(p, products):
     url = '%s/product/%s/' % (SITE, p['key'])
     og_img = img_abs(p['gallery'][0])
 
+    raw_desc = p.get('desc', '')
+    # Walmart 的描述是分段的，单行 <p> 里换行会丢；双换行转成新段落
+    desc_html = (esc(raw_desc, quote=False)
+                 .replace('\n\n', '</p><p class="detail-desc">')
+                 .replace('\n', ' '))
+    desc_meta = re.sub(r'\s+', ' ', raw_desc).strip()
+
     repl = {
         '{{TITLE}}': esc('%s | Eclife Bathroom Vanities' % p['name']),
-        '{{META_DESC}}': esc(p.get('desc', '')),
+        '{{META_DESC}}': esc(desc_meta[:300]),
         '{{CANONICAL}}': url,
         '{{OG_TITLE}}': esc(p['name']),
-        '{{OG_DESC}}': esc(p.get('desc', '')),
+        '{{OG_DESC}}': esc(desc_meta[:200]),
         '{{OG_IMAGE}}': og_img,
         '{{NAME}}': esc(p['name']),
         '{{SUB}}': esc(p.get('sub', '')),
@@ -450,7 +457,7 @@ def render_page(p, products):
         '{{THUMBS}}': render_thumbs(p),
         '{{SWATCHES}}': render_swatches(p),
         '{{FEATURES}}': render_features(p),
-        '{{DESC}}': esc(p.get('desc', '')),
+        '{{DESC}}': desc_html,
         '{{SPECS_BLOCK}}': render_specs(p),
         '{{REVIEWS}}': render_reviews(p),
         '{{RELATED}}': render_related(p, products),
@@ -494,7 +501,7 @@ def main():
     idx_path = os.path.join(ROOT, 'index.html')
     src = open(idx_path, encoding='utf-8').read()
     new_arr = 'const products = ' + json.dumps(slim_index(products), ensure_ascii=False, separators=(',', ':')) + ';'
-    src2, n = re.subn(r'const products\s*=\s*\[.*?\];', new_arr, src, count=1, flags=re.S)
+    src2, n = re.subn(r'const products\s*=\s*\[.*?\];', lambda m: new_arr, src, count=1, flags=re.S)
     assert n == 1, '首页 products 数组没找到'
     # 首页产品计数文案
     src2 = re.sub(r'>Showing \d+ products<', '>Showing %d products<' % len(products), src2)
