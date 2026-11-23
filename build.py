@@ -442,7 +442,9 @@ def render_page(p, products):
         '{{NAME}}': esc(p['name']),
         '{{SUB}}': esc(p.get('sub', '')),
         '{{BADGE}}': esc(p.get('badge') or 'Eclife Collection'),
-        '{{STARS}}': star_html(p['stars']) + '<span>%.1f &middot; %d reviews</span>' % (float(p['stars']), p.get('reviewCount') or 0),
+        '{{STARS}}': (star_html(p['stars']) + '<span>%.1f &middot; %d reviews</span>'
+                      % (float(p['stars']), p.get('reviewCount') or 0)) if p.get('reviewCount')
+                     else '<span>New arrival &middot; Eclife collection</span>',
         '{{PRICE}}': render_price(p),
         '{{MAIN_IMG}}': img_src(p['gallery'][0], '../../'),
         '{{THUMBS}}': render_thumbs(p),
