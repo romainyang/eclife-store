@@ -54,6 +54,9 @@ SW_HEX = {
     'white': '#f4f1ea', 'black': '#292722', 'gray': '#9a9a9a', 'grey': '#9a9a9a',
     'oak': '#8a6a4f', 'walnut': '#6b4a34', 'brown': '#6b4a34', 'beige': '#e8e2d8',
     'green': '#6b7d6a', 'blue': '#4a6b8a', 'cream': '#f4f1ea',
+    # 表格里会出现 "Dark Walnut" 这类带前缀的写法，统一按柜体主色归类
+    'dark walnut': '#6b4a34', 'light oak': '#8a6a4f', 'natural': '#8a6a4f',
+    'espresso': '#4a362a', 'charcoal': '#292722', 'ivory': '#f4f1ea',
 }
 EXTRA_IMAGES = {
     'BV249AK+VS039': [
@@ -254,12 +257,12 @@ def extract():
                                ('%s" H' % h_txt) if h_txt else '') if b]
         sub = ' · '.join(sub_bits)
 
+        # 只取柜体颜色。台面颜色不是变体，混进来会生成"没有图片的假色块"。
         sw = []
-        for c in (g(r, C['cabinet_color']), g(r, C['top_color'])):
-            key = pretty(c).lower()
-            hexv = SW_HEX.get(key)
-            if hexv and hexv not in sw:
-                sw.append(hexv)
+        cab = pretty(g(r, C['cabinet_color'])).lower() or color.lower()
+        hexv = SW_HEX.get(cab)
+        if hexv:
+            sw.append(hexv)
         if not sw:
             sw = ['#f4f1ea']
 

@@ -337,14 +337,18 @@ def render_thumbs(p):
 
 
 def render_swatches(p):
-    out = []
-    for i, c in enumerate(p.get('sw') or ['#f4f1ea']):
-        cls = 'detail-sw active' if i == 0 else 'detail-sw'
-        out.append(
-            '<span class="%s" style="background:%s" onclick="selectColor(%d)" title="%s"></span>'
-            % (cls, c, i, c)
-        )
-    return ''.join(out)
+    """只有一个颜色 = 没有可选变体，整块（含 Finish 标签）不渲染。
+    只有真的存在多个可选颜色时才出圆点，避免出现没有对应图片的假变体。"""
+    sw = p.get('sw') or []
+    if len(sw) < 2:
+        return ''
+    dots = ''.join(
+        '<span class="%s" style="background:%s" onclick="selectColor(%d)" title="%s"></span>'
+        % ('detail-sw active' if i == 0 else 'detail-sw', c, i, c)
+        for i, c in enumerate(sw)
+    )
+    return ('<div class="detail-label">Finish</div>'
+            '<div class="detail-swatches">%s</div>' % dots)
 
 
 def render_features(p):
