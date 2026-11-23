@@ -17,6 +17,9 @@ eclife-store/
 ├─ data/products.json      ★ 数据源：所有产品信息（Excel 会自动转换成它）
 ├─ excel_to_products.py    Excel → JSON 转换器（build.py 自动调用，合并 4 张数据表）
 ├─ make_products_xlsx.py   从 JSON 反向导出两个表格（两张表共用同一套结构）
+├─ walmart_import.py       批量导入 Walmart 表格 → data/walmart_new.json（售价=平台价×1.8）
+├─ merge_walmart.py        把 walmart_new.json 并入 products.xlsx / 生成 new-products-*.xlsx
+├─ fetch_images.py         并发抓外链图片并压到 300KB 内（统一转 JPEG）
 ├─ templates/product.html  产品详情页模板（含占位符，一般不用改）
 ├─ build.py                ★ 构建脚本：抓图压缩 / 生成详情页 / 同步首页 / 更新 sitemap
 ├─ product/<key>/index.html  自动生成的产品详情页，不要手改
