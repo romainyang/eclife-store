@@ -1864,10 +1864,13 @@
       "#f4f1ea"
     ],
     "gallery": [
+      "bv315-main",
       "bv315-1",
       "bv315-2",
       "bv315-3",
-      "bv315-4"
+      "bv315-4",
+      "bv315-storage-detail",
+      "bv315-dimensions"
     ],
     "features": [
       "30\" freestanding cabinet",
