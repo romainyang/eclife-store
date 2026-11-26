@@ -7,7 +7,7 @@
     "size": "48",
     "type": "double",
     "price": 999.99,
-    "was": 1299.99,
+    "was": 1499.99,
     "badge": "Featured",
     "stars": 4.9,
     "sw": [
@@ -379,8 +379,8 @@
     "sub": "White Marble Top · Brass Hardware · Wainscoting Style",
     "size": "60",
     "type": "double",
-    "price": 899,
-    "was": 999,
+    "price": 1599,
+    "was": 2398.5,
     "badge": "Best Seller",
     "stars": 4.9,
     "sw": [
@@ -645,7 +645,8 @@
     "sub": "Double Sink · Gold-Framed Mirrors · Luxe Edition",
     "size": "60",
     "type": "double",
-    "price": 999,
+    "price": 1599,
+    "was": 2398.5,
     "badge": "Premium",
     "stars": 4.9,
     "sw": [
@@ -877,7 +878,8 @@
     "sub": "Fluted Doors · 4 Drawers · Open Shelf",
     "size": "60",
     "type": "double",
-    "price": 689,
+    "price": 1599,
+    "was": 2398.5,
     "badge": "Best Seller",
     "stars": 4.9,
     "sw": [
@@ -1140,7 +1142,8 @@
     "sub": "French Cream · Wall-Mount · Arc Sinks",
     "size": "48",
     "type": "double",
-    "price": 679,
+    "price": 999.99,
+    "was": 1499.99,
     "badge": "New",
     "stars": 4.9,
     "sw": [
@@ -1372,7 +1375,8 @@
     "sub": "Clean Lines · Vessel Basin · Floating Cabinet",
     "size": "48",
     "type": "single",
-    "price": 459,
+    "price": 999.99,
+    "was": 1499.99,
     "badge": "",
     "stars": 4.9,
     "sw": [
@@ -2115,7 +2119,8 @@
     "sub": "Hand-Painted · Vintage Green · Freestanding",
     "size": "72",
     "type": "double",
-    "price": 1199,
+    "price": 1699,
+    "was": 2548.5,
     "badge": "Premium",
     "stars": 4.9,
     "sw": [
@@ -2613,7 +2618,8 @@
     "sub": "Black · Freestanding · Resin Top · 33.5\" H",
     "size": "48",
     "type": "double",
-    "price": 1069.2,
+    "price": 999.99,
+    "was": 1499.99,
     "badge": "",
     "stars": 4.8,
     "sw": [
@@ -2772,7 +2778,8 @@
     "sub": "White · Freestanding · Resin Top · 33.5\" H",
     "size": "48",
     "type": "double",
-    "price": 1187.98,
+    "price": 999.99,
+    "was": 1499.99,
     "badge": "",
     "stars": 4.8,
     "sw": [
@@ -4183,7 +4190,8 @@
     "sub": "White · Freestanding · Resin Top · 33.5\" H",
     "size": "48",
     "type": "double",
-    "price": 1044,
+    "price": 999.99,
+    "was": 1499.99,
     "badge": "",
     "stars": 4.8,
     "sw": [
@@ -4927,7 +4935,8 @@
     "sub": "Oak · Freestanding · Resin Top · 33.5\" H",
     "size": "48",
     "type": "double",
-    "price": 899.96,
+    "price": 999.99,
+    "was": 1499.99,
     "badge": "",
     "stars": 4.8,
     "sw": [
@@ -5089,7 +5098,8 @@
     "sub": "Dark Walnut · Freestanding · Resin Top · 33.5\" H",
     "size": "48",
     "type": "double",
-    "price": 899.96,
+    "price": 999.99,
+    "was": 1499.99,
     "badge": "",
     "stars": 4.8,
     "sw": [
